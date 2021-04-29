@@ -1,0 +1,10 @@
+false/
+.idea/
+.editorconfig/
+.git/
+.gitignore
+README.md
+dist/
+node_modules/
+docker-compose.yml
+package-lock.json

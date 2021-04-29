@@ -1,0 +1,14 @@
+version: "3.7"
+services: 
+  app-angular:
+    container_name: app-angular
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - "4200:80"
+    networks: 
+      - angular
+networks: 
+  angular:
+    driver: bridge
