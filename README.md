@@ -66,7 +66,7 @@ Espere para que o projeto seja compilado e vá para o ``localhost:4200``
 
 ## :page_facing_up: Licença
 
-Este projeto é licenciado pelo MIT License, veja mais em [LICENSE.md](https://github.com/a4s-ufpb/LICENSE.md) para mais detalhes.
+Este projeto é licenciado pelo MIT License, veja mais em [LICENSE.md](https://github.com/a4s-ufpb/EducAPI-Manager-Front/LICENSE.md) para mais detalhes.
 
 ## 👩‍💻👨‍💻 Contribuidores
 
