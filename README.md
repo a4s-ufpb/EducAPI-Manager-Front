@@ -72,34 +72,34 @@ Este projeto é licenciado pelo MIT License, veja mais em [LICENSE.md](https://g
 
 <table>
   <tr>
-    <td align="center">
-	    <a href="https://github.com/AmandaAzevedo">
-		    <img style="border-radius: 50%;" src="https://avatars2.githubusercontent.com/u/44630609?s=460&u=ff38a29379fef41570bb4850ae4ed4f456873d0d&v=4" width="100px;" alt=""/>
-		    <br/><sub><b>Amanda Azevedo</b></sub>
+  <td align="center">
+	    <a href="https://github.com/alefesoares">
+		    <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51381310?v=4" width="100px;" alt=""/>
+		    <br/><sub><b>Álefe Soares</b></sub>
 		</a></br>
     </td>
-    <td align="center">
+	<td align="center">
 	    <a href="https://github.com/Alvaro-Antonio">
 		    <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/41688893?v=4" width="100px;" alt=""/>
 		    <br/><sub><b>Alvaro Antônio</b></sub>
 		</a></br>
     </td>
     <td align="center">
-	    <a href="https://github.com/JoyceSousa">
-		    <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51709281?v=4" width="100px;" alt=""/>
-		    <br/><sub><b>Joyce Sousa</b></sub>
+	    <a href="https://github.com/AmandaAzevedo">
+		    <img style="border-radius: 50%;" src="https://avatars2.githubusercontent.com/u/44630609?s=460&u=ff38a29379fef41570bb4850ae4ed4f456873d0d&v=4" width="100px;" alt=""/>
+		    <br/><sub><b>Amanda Azevedo</b></sub>
 		</a></br>
     </td>
-    <td align="center">
-	    <a href="https://github.com/alefesoares">
-		    <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51381310?v=4" width="100px;" alt=""/>
-		    <br/><sub><b>Álefe Soares</b></sub>
-		</a></br>
-    </td>
-    <td align="center">
+	<td align="center">
 	    <a href="https://github.com/EduardoGhost">
 		    <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/61304055?v=4" width="100px;" alt=""/>
 		    <br/><sub><b>Eduardo Freire</b></sub>
+		</a></br>
+    </td>
+    <td align="center">
+	    <a href="https://github.com/JoyceSousa">
+		    <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/51709281?v=4" width="100px;" alt=""/>
+		    <br/><sub><b>Joyce Sousa</b></sub>
 		</a></br>
     </td>
   </tr>
