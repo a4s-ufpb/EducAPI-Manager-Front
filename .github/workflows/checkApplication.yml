@@ -23,4 +23,4 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
-      - run: ng server
+      - run: npm run build
