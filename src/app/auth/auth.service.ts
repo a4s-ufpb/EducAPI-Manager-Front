@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return this.storage.getLocalUser() != null;
+    return this.storage.getToken() != null;
   }
 
   authenticate(email: string, password: string): Observable<TokenModel> {
@@ -34,8 +34,8 @@ export class AuthService {
       { email: email, password: password });
   }
 
-  sucessfullLogin(user: UserModel) {
-    this.storage.setLocalUser(user);
+  sucessfullLogin(token: TokenModel) {
+    this.storage.setToken(token.token);
   }
 
   logout() {
@@ -54,6 +54,10 @@ export class AuthService {
 
   register(obj: UserModel): Observable<UserModel> {
     return this.http.post<UserModel>(`${this.baseURL}/v1/api/users`, obj);
+  }
+
+  getUser(): Observable<UserModel>{
+    return this.http.get<UserModel>(`${this.baseURL}/v1/api/auth/users`);
   }
 
 }
