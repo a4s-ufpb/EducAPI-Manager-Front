@@ -11,7 +11,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { HeaderComponent } from './header/header.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './auth/auth.service';
@@ -24,7 +23,6 @@ import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
   declarations: [
     AppComponent,
     CadastorDesafiosComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,
