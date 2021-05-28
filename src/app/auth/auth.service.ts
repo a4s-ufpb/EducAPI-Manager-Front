@@ -52,8 +52,8 @@ export class AuthService {
     return this.router.navigate([`login`, btoa(path)])
   }
 
-  register(obj: UserModel): Observable<UserModel> {
-    return this.http.post<UserModel>(`${this.baseURL}/v1/api/users`, obj);
+  register(email: string, name: string, password: string): Observable<UserModel> {
+    return this.http.post<UserModel>(`${this.baseURL}/v1/api/users`, {email: email, name: name, password: password});
   }
 
   getUser(): Observable<UserModel>{

@@ -3,7 +3,35 @@
         <img class="logo" src="..\..\assets\logo.svg" alt="logo">
     </div>
     <div class="section">
-        <div class="form">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Cadastre-se com o seu e-mail</mat-card-title>
+                <mat-card-subtitle>Cadastre-se para criar contextos e temas</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="registerFormGroup" fxLayout="column">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nome de usuário</mat-label>
+                        <input matInput type="text" formControlName="text" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Senha</mat-label>
+                        <input matInput type="password" formControlName="password" required>
+                    </mat-form-field>
+                </form>
+                <button mat-flat-button color="primary" (click)="submit()">Primary</button>
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-actions>
+                <h3>Já sou cadastrado, fazer<a routerLink="../login"> Login</a></h3>
+            </mat-card-actions>
+        </mat-card>
+        <!--
+            <div class="form">
             <h1>Cadastre-se com o seu E-mail</h1>
             <h4 id="subtitle">Cadastre-se para criar contextos e temas</h4>
             <input type="email" matInput placeholder="E-mail*">
@@ -20,6 +48,8 @@
             <a href="#"> 
                 Login
             </a>
-        </div>  
+        </div> 
+        -->
+       
     </div>
 </div>
