@@ -22,14 +22,15 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.buildForm();
   }
-  register(): void {
 
-  }
   submit() {
     if (this.registerFormGroup.valid) {
       this.authService.register(this.registerFormGroup.value.email
-        , this.registerFormGroup.value.name, this.registerFormGroup.value.password);
-      this.loginNewUser(this.registerFormGroup.value.email, this.registerFormGroup.value.password);
+        , this.registerFormGroup.value.name, this.registerFormGroup.value.password).subscribe(
+          result => {
+            this.loginNewUser(this.registerFormGroup.value.email, this.registerFormGroup.value.password);
+          }
+        );
     }
   }
 
@@ -55,7 +56,7 @@ export class RegisterComponent implements OnInit {
   buildForm() {
     this.registerFormGroup = this.formBuilder.group({
       email: ['', [Validators.required]],
-      text: [''],
+      name: [''],
       password: [undefined, [Validators.required]]
     })
   }

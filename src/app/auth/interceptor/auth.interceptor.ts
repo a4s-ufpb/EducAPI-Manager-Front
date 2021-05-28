@@ -7,8 +7,8 @@ import {
   import { Observable, of, throwError } from 'rxjs';
   import { Injectable } from '@angular/core';
   import { AuthService } from '../auth.service';
-  import { Router, ActivatedRoute } from '@angular/router';
-  import { catchError } from 'rxjs/operators';
+  import { Router, ActivatedRoute, RouterStateSnapshot, ChildActivationEnd } from '@angular/router';
+  import { catchError, filter, take } from 'rxjs/operators';
 import { StorageService } from '../session/storage.service';
   
   @Injectable({
@@ -39,7 +39,7 @@ import { StorageService } from '../session/storage.service';
               error.status === 403
             ) {
               this.authService.handleLogin(
-                this.activatedRoute.snapshot.url[0].path
+                this.activatedRoute.snapshot.url.join('')
               );
             }
             return throwError(error);
