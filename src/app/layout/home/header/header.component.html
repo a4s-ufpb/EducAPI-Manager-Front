@@ -1,35 +1,4 @@
-<mat-toolbar color="#fff" class="mat-elevation-z4">
-  <div fxHide.gt-xs>
-      <button mat-icon-button (click)="onToggleSidenav()">
-          <mat-icon>menu</mat-icon>
-      </button>
-  </div>
-  <div>
-      <a class="title" routerLink="/home">EducaManager</a>
-  </div>
-  <div fxFlex fxLayout fxLayoutAlign="end end" fxHide.xs>
-      <ul fxLayout fxLayoutGap="15px" class="navigation-items">
-          <li>
-              <a mat-button href="#sobre">Sobre</a>
-          </li>
-          <li>
-            <a mat-button href="#aplicativos">Aplicativos </a>
-          </li>
-          <span  class="menu-pipe">|</span>
-          <li>
-            <button mat-raised-button style="background: #5ABA38;" color="primary">Cadastrar</button>
-          </li>
-          <li>
-            <a mat-button [routerLink]="'/login'">Entrar</a>
-          </li>
-          </ul>
-  </div>
 
-  <mat-sidenav #sidenav role="navigation">
-    <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
-  </mat-sidenav>
-
-</mat-toolbar>
 
 
 

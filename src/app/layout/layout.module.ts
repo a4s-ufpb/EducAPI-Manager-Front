@@ -10,7 +10,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule} from '@angular/material/card';
 import { HeaderComponent } from './home/header/header.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { SidenavListComponent } from './home/header/sidenav-list/sidenav-list.component';
+import { SidenavListComponent } from './home/sidenav-list/sidenav-list.component';
 import { MatMenuModule } from '@angular/material/menu';
 
 
@@ -29,8 +29,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MatListModule,
     FlexLayoutModule,
     MatCardModule,
-    MatSidenavModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSidenavModule
 
   ],
   providers: []

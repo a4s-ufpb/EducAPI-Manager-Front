@@ -17,4 +17,8 @@ export class HeaderComponent implements OnInit {
     this.sidenavToggle.emit();
   }
 
+  scroll(el: HTMLElement) {
+    el.scrollIntoView();
+}
+
 }
