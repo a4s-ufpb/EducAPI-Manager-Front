@@ -1,0 +1,143 @@
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <mat-toolbar color="#fff" class="mat-elevation-z4">
+      <div fxHide.gt-xs>
+          <button mat-icon-button (click)="onToggleSidenav()">
+              <mat-icon>menu</mat-icon>
+          </button>
+      </div>
+      <div>
+          <a class="title" routerLink="/home">EducaManager</a>
+      </div>
+      <div fxFlex fxLayout fxLayoutAlign="end start" fxHide.xs>
+          <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+              <li>
+                  <a mat-button (click)="scroll(sobre)">Sobre</a>
+              </li>
+              <li>
+                <a mat-button (click)="scroll(aplicativos)">Aplicativos </a>
+              </li>
+              <span  class="menu-pipe">|</span>
+              <li>
+                <button mat-raised-button (click)="redirectToregister()" style="background: #5ABA38;" color="primary">Cadastrar</button>
+              </li>
+              <li>
+                <a mat-button (click)="redirectToLogin()">Entrar</a>
+              </li>
+              </ul>
+      </div>
+
+      <mat-sidenav #sidenav role="navigation">
+        <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+      </mat-sidenav>
+
+    </mat-toolbar>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+<div style="margin: 30px; background-color: #fff;">
+  <img src="/assets/img/Imagemdahome.svg"
+    alt="Imagem com um desenho que representa uma professora na lousa uma criança na carteira e outras duas garotras em pé">
+</div>
+
+<h1 #sobre class="subtitle" fxLayout="row">Sobre o EducaManager</h1>
+
+<ng-container>
+
+  <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutAlign="center center" class="box-style">
+    <div class="example-card" fxFlex="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+
+      <h1 class="title-card">Sobre o EducaManager</h1>
+
+      <p style="padding: 3%">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan erat sit amet sem pellentesque
+        consectetur. Fusce facilisis tincidunt justo, in lacinia turpis placerat sed. In finibus elit at lectus
+        elementum tempus. Proin quis purus eu risus sodales scelerisque nec nec ligula. Vestibulum malesuada felis ac
+        sollicitudin vehicula. Vestibulum elementum dapibus tellus quis congue. Fusce egestas suscipit molestie. Orci
+        varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam eu ex nec ante luctus
+        blandit nec tempor lacus.
+      </p>
+    </div>
+
+    <div class="example-card" fxFlex="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+
+
+      <p>
+        <iframe width="auto" height="250" src="https://www.youtube.com/embed/b5TdZ_ox99A" title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </p>
+
+    </div>
+  </div>
+
+  <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutAlign="center center"
+    class="style-div-project">
+    <mat-card class="example-card" fxFlex="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" style="border: 3px solid #5ABA38;">
+      <mat-card-header>
+        <mat-card-title class="title-card">Sobre o projeto SisAlfa</mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding: 3%;">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan erat sit amet sem pellentesque
+          consectetur. Fusce facilisis tincidunt justo, in lacinia turpis placerat sed. In finibus elit at lectus
+          elementum tempus. Proin quis purus eu risus sodales scelerisque nec nec ligula. Vestibulum malesuada felis ac
+          sollicitudin vehicula.
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="example-card" fxFlex="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" style="border:3px solid #14A6A6">
+      <mat-card-header>
+        <mat-card-title class="title-card">Sobre o projeto App4society</mat-card-title>
+      </mat-card-header>
+      <mat-card-content style="padding: 3%;">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse accumsan erat sit amet sem pellentesque
+          consectetur. Fusce facilisis tincidunt justo, in lacinia turpis placerat sed. In finibus elit at lectus
+          elementum tempus. Proin quis purus eu risus sodales scelerisque nec nec ligula. Vestibulum malesuada felis ac
+          sollicitudin vehicula.
+        </p>
+      </mat-card-content>
+    </mat-card>
+
+  </div>
+  <h1 #aplicativos id="aplicativos" class="subtitle" fxLayout="row">Aplicativos</h1>
+
+  <div fxLayout="row wrap" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutAlign="center center" class="box-style">
+
+    <div fxLayout="col" class="example-card" fxFlex="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%">
+      <div style="height:507px; margin-top: 0px !important;">
+        <img src="/assets/img/appalpha.png" alt="" class="images-apps">
+      </div>
+      <div>
+        <img src="/assets/img/alfabeto.png" alt="" class="images-apps" style="margin-top: 133px !important; margin-left: 30px;">
+      </div>
+
+
+    </div>
+
+    <div class="example-card" fxFlex="0 1 calc(50% - 32px)" fxFlex.lt-sm="100%" style="text-align: center;">
+
+      <h1 class="title-card" >Disponível agora no Google Play</h1>
+      <span style="color: #979191;
+      ;">Acesse a Google Play para baixar o EducAPI Manager e outros aplicativos.</span>
+      <img (click)="redirectToPlayStore()" src="assets/img/google-play-badge.png" alt="imagem da logo da playstore" style="height:143px;">
+
+    </div>
+  </div>
+
+  <footer>
+    <ul>
+      <li><a href="#">Educa Manager</a> </li>
+      <li>|</li>
+      <li (click)="scroll(sobre)" >Sobre</li>
+      <li (click)="scroll(aplicativos)" > Aplicativos</li>
+      <li (click)="redirectToregister()">Cadastre-se </li>
+      <li (click)="redirectToLogin()">Login</li>
+    </ul>
+  </footer>
+
+</ng-container>

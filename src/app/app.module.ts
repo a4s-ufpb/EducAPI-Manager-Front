@@ -1,9 +1,7 @@
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastorDesafiosComponent } from './cadastor-desafios/cadastor-desafios.component';
 import {MatCardModule} from '@angular/material/card';
@@ -17,6 +15,7 @@ import { AuthService } from './auth/auth.service';
 import { StorageService } from './auth/session/storage.service';
 import { LoggedInGuard } from './auth/guard/loggedin.guard';
 import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
+import { HeaderComponent } from './layout/home/header/header.component';
 
 
 @NgModule({
@@ -45,6 +44,9 @@ import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
       useClass: AuthInterceptor,
       multi: true,
     },
+
+    MatIconModule
+
   ],
   bootstrap: [AppComponent]
 })
