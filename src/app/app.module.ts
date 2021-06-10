@@ -15,8 +15,6 @@ import { AuthService } from './auth/auth.service';
 import { StorageService } from './auth/session/storage.service';
 import { LoggedInGuard } from './auth/guard/loggedin.guard';
 import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
-import { HeaderComponent } from './layout/home/header/header.component';
-
 
 @NgModule({
   declarations: [
@@ -44,9 +42,7 @@ import { HeaderComponent } from './layout/home/header/header.component';
       useClass: AuthInterceptor,
       multi: true,
     },
-
-    MatIconModule
-
+    MatIconModule,
   ],
   bootstrap: [AppComponent]
 })
