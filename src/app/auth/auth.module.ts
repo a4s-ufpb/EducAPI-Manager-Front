@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDividerModule} from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
+import { MatIconModule } from '@angular/material/icon';
 
 
 
@@ -27,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatButtonModule, 
     MatDividerModule,
     HttpClientModule,
+    MatIconModule,
   ]
 })
 export class AuthModule { }

@@ -12,6 +12,7 @@ import { StorageService } from '../session/storage.service';
 export class LoginComponent implements OnInit {
 
   public loginFormGroup!: FormGroup;
+  public isPassword : boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -50,5 +51,9 @@ export class LoginComponent implements OnInit {
 
   redirectToContexts(){
     this.router.navigate(['/contexts']);
+  }
+
+  redirectHome(){
+    this.router.navigate(['/home']);
   }
 }

@@ -13,6 +13,7 @@ import { StorageService } from '../session/storage.service';
 export class RegisterComponent implements OnInit {
 
   public registerFormGroup!: FormGroup;
+  public isPassword : boolean = true;
 
   constructor(private formBuilder: FormBuilder,
     private authService: AuthService,
@@ -59,5 +60,9 @@ export class RegisterComponent implements OnInit {
       name: [''],
       password: [undefined, [Validators.required]]
     })
+  }
+
+  redirectHome(){
+    this.router.navigate(['/home']);
   }
 }
