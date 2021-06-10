@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,16 +7,21 @@ import { CadastorDesafiosComponent } from './cadastor-desafios/cadastor-desafios
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
-import { HeaderComponent } from './header/header.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { AuthService } from './auth/auth.service';
+import { StorageService } from './auth/session/storage.service';
+import { LoggedInGuard } from './auth/guard/loggedin.guard';
+import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
+import { HeaderComponent } from './layout/home/header/header.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastorDesafiosComponent,
-    HeaderComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -24,9 +29,25 @@ import { HeaderComponent } from './header/header.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatInputModule,
-    MatIconModule
+    MatIconModule,
+    FlexLayoutModule,
+    HttpClientModule,
+    CommonModule,
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    AuthService,
+    StorageService,
+    LoggedInGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+
+    MatIconModule
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
