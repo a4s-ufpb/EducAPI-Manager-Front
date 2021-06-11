@@ -1,0 +1,29 @@
+<mat-card class="card">
+    <mat-card-header>
+        <mat-card-title class="title">Contextos</mat-card-title>
+        <mat-card-subtitle class="subtitle">Digite as informaçoes para cadastrar o seu contexto, clique em "Salvar" 
+            e siga para cadastro os desafios.</mat-card-subtitle>
+    </mat-card-header>
+    
+      <input class="imput1" matInput placeholder="   Nome do contexto *">
+    
+      <input class="imput2" matInput placeholder="   Link da imagem *">
+    
+      <input class="imput3" matInput placeholder="   Link do vídeo">
+    
+      <input class="imput4" matInput placeholder="   Link do áudio">
+   
+      
+      <button mat-button (click)="salvar() " class="salvar mat-elevation-z4 ">
+        <i class="material-icons">
+          done
+        </i> Salvar
+      </button>
+
+      <button mat-button (click)="cancelar() " class="cancelar mat-elevation-z4 ">
+        <i class="material-icons">
+          done
+        </i> Cancelar
+      </button>
+   
+    </mat-card>
