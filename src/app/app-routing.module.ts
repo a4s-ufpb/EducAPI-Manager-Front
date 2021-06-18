@@ -6,6 +6,7 @@ import { CadastorDesafiosComponent } from './desafios/cadastor-desafios/cadastor
 
 import { CadastraContextoComponent} from "./contextos/cadastra-contexto/cadastra-contexto.component"
 import {HeaderComponent} from "./CadastroUsuário/header.component"
+import { EdicaoContextoComponent } from './contextos/edicaoContexto/edicao-contexto/edicao-contexto.component';
 
 const routes: Routes = [
 {
@@ -20,6 +21,9 @@ const routes: Routes = [
 },{
   path: "contextos",
   component: CadastraContextoComponent
+},{
+  path: "edicaoContexto",
+  component: EdicaoContextoComponent
 }
 
 

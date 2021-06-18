@@ -12,6 +12,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 
 import { HeaderComponent } from './CadastroUsuário/header.component';
+import { EdicaoContextoComponent } from './contextos/edicaoContexto/edicao-contexto/edicao-contexto.component';
 
 
 
@@ -23,6 +24,7 @@ import { HeaderComponent } from './CadastroUsuário/header.component';
     CadastorDesafiosComponent,
     HeaderComponent,
     CadastraContextoComponent,
+    EdicaoContextoComponent,
    
   ],
   imports: [
