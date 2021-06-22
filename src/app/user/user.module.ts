@@ -8,13 +8,15 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
-
-
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
 @NgModule({
-  declarations: [ViewProfileComponent],
+  declarations: [ViewProfileComponent,
+    EditProfileComponent],
   imports: [
     CommonModule,
     UserRoutingModule,
@@ -23,7 +25,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatCardModule,
     MatButtonModule,
     MatMenuModule,
-    MatGridListModule
+    MatGridListModule,
+    MatFormFieldModule,
+    MatDialogModule
   ]
 })
 export class UserModule { }
