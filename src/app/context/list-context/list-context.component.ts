@@ -10,8 +10,8 @@ export interface Contract {
 
 @Component({
   selector: 'app-listagem-contextos',
-  templateUrl: './context-list.component.html',
-  styleUrls: ['./context-list.component.css']
+  templateUrl: './list-context.component.html',
+  styleUrls: ['./list-context.component.css']
 })
 
 export class ListContextComponent implements OnInit {
