@@ -15,6 +15,13 @@ const routes: Routes = [
     canActivate: [],
   },
   {
+    path: 'user',
+    loadChildren: () =>
+      import('./user/user.module').then((m) => m.UserModule),
+    canLoad: [],
+    canActivate: [],
+  },
+  {
     path: 'contexts',
     loadChildren: () =>
       import('./context/context.module').then((m) => m.ContextModule),
