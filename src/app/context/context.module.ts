@@ -8,6 +8,8 @@ import {MatCardModule} from '@angular/material/card';
 import { ListContextComponent } from './list-context/list-context.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [ListContextComponent],
@@ -19,7 +21,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatIconModule,
     MatCardModule,
     MatMenuModule,
-    MatGridListModule
+    MatGridListModule,
+    MatPaginatorModule
   ]
 })
 export class ContextModule { }

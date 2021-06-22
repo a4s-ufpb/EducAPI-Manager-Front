@@ -1,13 +1,13 @@
  <div id="header">
-     CONTEXTOS
+     Contextos
  </div>
  <mat-grid-list cols="3" rowHeight="505px">
-        <mat-grid-tile *ngFor="let context of contextos">
+        <mat-grid-tile *ngFor="let context of contexts">
             <mat-card class="contexto">
                 <mat-card-header>
-                  <mat-card-title>{{context.Id}}</mat-card-title>
-                  <mat-card-subtitle>{{context.Name}}
-                    <h5>{{context.Author}}</h5>
+                  <mat-card-title>#{{context?.id}}</mat-card-title>
+                  <mat-card-subtitle>{{context?.name}}
+                    <h5>{{context.creator?.name}}</h5>
                   </mat-card-subtitle>
                   <div class="miniMenu">
                     <button class="menuIcon" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
@@ -30,7 +30,7 @@
                   </div>
                 </mat-card-header>
                 <mat-card-content>
-                    <img class="imagem" mat-card-image src={{context.Image}}>
+                    <img mat-card-imag class="imagem" mat-card-image [src]="getImage(context.imageURL)">
                 </mat-card-content>
                 <mat-card-actions>
                   <button class="view" mat-icon-button><mat-icon>visibility</mat-icon>Ver desafios</button>

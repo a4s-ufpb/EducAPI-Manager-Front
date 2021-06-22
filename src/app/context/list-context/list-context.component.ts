@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import {DomSanitizer} from '@angular/platform-browser';
 import {MatIconRegistry} from '@angular/material/icon';
+import { ContextModel } from '../context.model';
+import { ContextService } from '../context.service';
+import { Page } from 'src/app/shared/model/page.model';
+
+
 export interface Contract {
   Id: string;
   Name: string;
@@ -16,35 +21,35 @@ export interface Contract {
 
 export class ListContextComponent implements OnInit {
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
+  pageContexts: Page<ContextModel> | undefined ;
+
+
+  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private contextService: ContextService) {
     iconRegistry.addSvgIcon(
         'view-button',
         sanitizer.bypassSecurityTrustResourceUrl('assets/view-button.svg'));
   }
 
   ngOnInit(): void {
+    this.getAllContexts();
   }
 
-  contextos: Array<Contract> =[
-    {
-      Id:'#1',
-      Name: 'Name 1',
-      Author: 'Ayla',
-      Image: 'https://material.angular.io/assets/img/examples/shiba2.jpg'
-    },
-    {
-      Id:'#2',
-      Name: 'Name 2',
-      Author: 'Ayla2',
-      Image: 'https://material.angular.io/assets/img/examples/shiba2.jpg'
-    },
-    {
-      Id:'#3',
-      Name: 'Name 3',
-      Author: 'Ayla3',
-      Image: 'https://material.angular.io/assets/img/examples/shiba2.jpg'
-    }
-  
-  ]
+  get contexts(){
+    return this.pageContexts?.content;
+  }
+
+  getAllContexts(){
+    this.contextService.findAllContextPerPage().subscribe(
+      result => {
+        console.log(result);
+        this.pageContexts = result;
+      }
+    );
+  }
+
+  getImage(imageUrl: string){
+    return imageUrl !== undefined && imageUrl !== null && imageUrl !== '' ? imageUrl : '../../../assets/img/image-not-found.png';
+  }
+
 
 }
