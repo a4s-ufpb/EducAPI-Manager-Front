@@ -14,7 +14,7 @@ export interface Contract {
   styleUrls: ['./context-list.component.css']
 })
 
-export class ContextListComponent implements OnInit {
+export class ListContextComponent implements OnInit {
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(

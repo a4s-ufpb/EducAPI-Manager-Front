@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ContextListComponent } from './context-list/context-list.component';
+import { ListContextComponent } from './list-context/list-context.component';
 
 
 const routes: Routes = [
@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'list',
-    component: ContextListComponent,
+    component: ListContextComponent,
     canLoad: [],
     canActivate: [],
   },

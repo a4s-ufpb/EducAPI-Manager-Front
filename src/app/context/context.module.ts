@@ -5,12 +5,12 @@ import { ContextRoutingModule } from './context-routing.module';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-import { ContextListComponent } from './context-list/context-list.component';
+import { ListContextComponent } from './list-context/list-context.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
-  declarations: [ContextListComponent],
+  declarations: [ListContextComponent],
   imports: [
     CommonModule,
     ContextRoutingModule,

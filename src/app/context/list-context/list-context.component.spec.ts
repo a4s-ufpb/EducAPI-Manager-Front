@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListagemContextosComponent } from './context-list.component';
+import { ListContextComponent } from './list-context.component';
 
 describe('ListagemContextosComponent', () => {
-  let component: ListagemContextosComponent;
-  let fixture: ComponentFixture<ListagemContextosComponent>;
+  let component: ListContextComponent;
+  let fixture: ComponentFixture<ListContextComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ListagemContextosComponent ]
+      declarations: [ ListContextComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListagemContextosComponent);
+    fixture = TestBed.createComponent(ListContextComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
