@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ListagemContextosComponent } from './listagem-contextos.component';
+import { ListagemContextosComponent } from './context-list.component';
 
 describe('ListagemContextosComponent', () => {
   let component: ListagemContextosComponent;

@@ -10,11 +10,11 @@ export interface Contract {
 
 @Component({
   selector: 'app-listagem-contextos',
-  templateUrl: './listagem-contextos.component.html',
-  styleUrls: ['./listagem-contextos.component.css']
+  templateUrl: './context-list.component.html',
+  styleUrls: ['./context-list.component.css']
 })
 
-export class ListagemContextosComponent implements OnInit {
+export class ContextListComponent implements OnInit {
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon(
