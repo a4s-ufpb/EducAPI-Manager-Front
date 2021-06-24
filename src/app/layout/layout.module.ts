@@ -12,13 +12,16 @@ import { HeaderComponent } from './home/header/header.component'
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidenavListComponent } from './home/sidenav-list/sidenav-list.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { HeaderLoggedComponent } from './header-logged/header-logged.component';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     HeaderComponent,
-    SidenavListComponent
+    SidenavListComponent,
+    HeaderLoggedComponent
   ],
   imports: [
     LayoutRoutingModule,
@@ -30,7 +33,9 @@ import { MatMenuModule } from '@angular/material/menu';
     FlexLayoutModule,
     MatCardModule,
     MatMenuModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatIconModule,
+    MatInputModule
 
   ],
   providers: []

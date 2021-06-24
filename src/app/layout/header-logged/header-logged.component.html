@@ -1,0 +1,38 @@
+<mat-sidenav-container>
+  <mat-sidenav-content>
+    <mat-toolbar color="#fff" class="mat-elevation-z4">
+      <div fxHide.gt-xs>
+          <button mat-icon-button >
+              <mat-icon>menu</mat-icon>
+          </button>
+      </div>
+      <div>
+          <a class="title" routerLink="/home">EducaManager</a>
+      </div>
+      <div fxFlex fxLayout fxLayoutAlign="end start" fxHide.xs>
+
+
+                <form class="example-form">
+                  <mat-form-field class="example-full-width">
+                    <mat-label>Buscar</mat-label>
+                    <input type="search" matInput placeholder="universo">
+                    <mat-icon style="color: #14A6A6;
+                    "matSuffix>search</mat-icon>
+                  </mat-form-field>
+                </form>
+
+                <button mat-raised-button style="background: #5ABA38;" color="primary">Criar</button>
+
+                <a mat-button> <mat-icon>account_circle</mat-icon> </a>
+
+      </div>
+
+      <mat-sidenav #sidenav role="navigation">
+        <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+      </mat-sidenav>
+
+    </mat-toolbar>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+<router-outlet></router-outlet>
