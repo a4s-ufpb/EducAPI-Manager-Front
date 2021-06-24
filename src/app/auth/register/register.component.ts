@@ -56,13 +56,21 @@ export class RegisterComponent implements OnInit {
 
   buildForm() {
     this.registerFormGroup = this.formBuilder.group({
-      email: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
       name: [''],
-      password: [undefined, [Validators.required]]
+      password: [undefined, [Validators.required, Validators.minLength(8)]]
     })
   }
 
   redirectHome(){
     this.router.navigate(['/home']);
+  }
+
+  get email() {
+    return this.registerFormGroup?.get('email');
+  }
+
+  get password() {
+    return this.registerFormGroup?.get('password');
   }
 }
