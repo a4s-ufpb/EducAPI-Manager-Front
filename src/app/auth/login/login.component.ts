@@ -50,7 +50,7 @@ export class LoginComponent implements OnInit {
   }
 
   redirectToContexts(){
-    this.router.navigate(['/contexts']);
+    this.router.navigate(['/nav']);
   }
 
   redirectHome(){

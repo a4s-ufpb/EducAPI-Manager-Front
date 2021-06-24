@@ -1,7 +1,6 @@
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HeaderLoggedComponent } from './header-logged/header-logged.component';
 
 const routes: Routes = [
   {

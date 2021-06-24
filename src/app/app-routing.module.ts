@@ -36,6 +36,14 @@ const routes: Routes = [
       breadcrumb: 'Home',
     },
   },
+  {
+    path: 'nav',
+    loadChildren: () =>
+      import('./nav-bar/nav-bar.module').then((m) => m.NavBarModule),
+    data: {
+      breadcrumb: 'Nav',
+    },
+  },
 ];
 
 @NgModule({
