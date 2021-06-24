@@ -1,0 +1,30 @@
+<mat-toolbar class="nav-bar mat-elevation-z4 ">
+  <div class="divBusca">
+    <input type="text" class="txtBusca" placeholder="Buscar..." />
+    <i class="material-icons" alt="Buscar...">
+      search
+    </i>
+  </div>
+
+  <a (click)="home()" class="logo">
+    EducaManager
+  </a>
+
+  <button [matMenuTriggerFor]="menu" class="snackbutton">
+    <img class="a" src="assets/perfil-remove.png" alt="logo">
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button (click)="verPerfil()" mat-menu-item>
+      <mat-icon>visibility </mat-icon> Ver perfil
+    </button>
+    <button (click)="editarPerfil()" mat-menu-item>
+      <mat-icon> edit</mat-icon> Editar perfil
+    </button>
+    <button (click)="sair()" mat-menu-item>
+      <mat-icon>arrow_right_alt</mat-icon> Sair
+    </button>
+  </mat-menu>
+
+  <button (click)="criar()" class="button"> Criar </button>
+</mat-toolbar>

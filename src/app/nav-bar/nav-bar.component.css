@@ -1,0 +1,93 @@
+.nav-bar {
+  position: absolute;
+  width: 1441px;
+  height: 100px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.divBusca {
+  position: absolute;
+  border-radius: 5px;
+  width: 732px;
+  height: 45px;
+  left: 354px;
+  top: 27px;
+  background: #ebebeb;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.txtBusca {
+  float: left;
+  background-color: transparent;
+  padding-left: 22px;
+  font-style: Montserrat;
+  font-size: 24px;
+  font-weight: bold;
+  color: #a79f9f;
+  border: none;
+  height: fill;
+  width: fill;
+}
+
+.divBusca .material-icons {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 700px;
+  top: 12px;
+  cursor: pointer;
+  color: #14a6a6;
+}
+
+.logo {
+  cursor: pointer;
+  position: absolute;
+  width: 260px;
+  height: 39px;
+  left: 30px;
+  top: 30px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 37px;
+  text-align: center;
+  color: #14a6a6;
+}
+
+.snackbutton {
+  position: absolute;
+  right: 58px;
+  left: 1315px;
+  top: 16px;
+  background: none;
+  border: none;
+  color: #14a6a6;
+}
+
+.a {
+  width: 67px;
+  height: 67px;
+}
+
+.button {
+  position: absolute;
+  width: 104px;
+  height: 49.47px;
+  left: 1158px;
+  top: 24px;
+  background-color: #5aba38;
+  font-style: normal;
+  font-family: Montserrat;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 10px;
+  border-color: #ffffff;
+}
