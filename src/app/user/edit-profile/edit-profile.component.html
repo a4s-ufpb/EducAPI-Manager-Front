@@ -1,0 +1,52 @@
+<div class="dialog-container">
+  <h1 mat-dialog-title class="title">
+    Edite seu perfil aqui
+  </h1>
+  <h3 mat-card-subtitle class="subtitle">
+    Clique no lápis para editar o seu nome de usuário, ou digite sua nova senha nos campos abaixo.
+  </h3>
+  <mat-dialog-content>
+    <form [formGroup]="editProfileFormGroup" fxLayout="column">
+      <mat-form-field appearance="outline" class="nome">
+        <mat-label>Nome do usuário</mat-label>
+        <input matInput value='' formControlName="name">
+        <mat-icon matSuffix class="icon">create</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="senha">
+        <mat-label>Nova senha</mat-label>
+        <input matInput placeholder="Nova Senha" [type]="hide ? 'password' : 'text'"  formControlName="password">
+        <mat-icon class="icon" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Digite sua nova senha</mat-label>
+        <input matInput [type]="isPassword ? 'password' : 'text'" placeholder="Confirme a nova senha"
+        formControlName="confirmPassword">
+        <button mat-icon-button matSuffix (click)="isPassword = !isPassword" [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="isPassword">
+          <mat-icon>{{isPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+
+    </form>
+
+  </mat-dialog-content>
+
+  <mat-dialog-actions fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="32px">
+
+    <button mat-button (click)="save()" class="save">
+      <i class="material-icons">
+        done
+      </i> Salvar
+    </button>
+
+    <button mat-flat-button color="warn" (click)="end()" class="cancel">
+      <i class="material-icons">
+        close
+      </i> Cancelar
+    </button>
+
+  </mat-dialog-actions>
+
+</div>

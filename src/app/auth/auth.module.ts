@@ -12,10 +12,6 @@ import {MatDividerModule} from '@angular/material/divider';
 import { HttpClientModule } from '@angular/common/http';
 import { MatIconModule } from '@angular/material/icon';
 
-
-
-
-
 @NgModule({
   declarations: [LoginComponent, RegisterComponent],
   imports: [
