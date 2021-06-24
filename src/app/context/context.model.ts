@@ -4,7 +4,7 @@ export interface ContextModel{
     challenges: ChallengeModel [],
     creator: UserModel,
     id: number,
-    imageURL: string,
+    imageUrl: string,
     name: string,
     soundUrl: string,
     videoUrl: string

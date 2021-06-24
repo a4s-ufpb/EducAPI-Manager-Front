@@ -1,4 +1,4 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable, NgZone } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
@@ -24,7 +24,11 @@ export class ContextService {
     }
 
 
-    findAllContextPerPage(): Observable<Page<ContextModel>> {
-        return this.http.get<Page<ContextModel>>(`${this.baseURL}/v1/api/contexts`);
+    findAllContextPerPage(page:number | undefined = 0, pageSize: number | undefined = 25, paged: boolean | undefined = true): Observable<Page<ContextModel>> {
+        const paginationParam = new HttpParams()
+        .set('page', String(page))
+        .set('size', String(pageSize))
+        .set('paged', String(paged));
+        return this.http.get<Page<ContextModel>>(`${this.baseURL}/v1/api/contexts`, { params: paginationParam });
     }
 }

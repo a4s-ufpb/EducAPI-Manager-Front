@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
-import {MatIconRegistry} from '@angular/material/icon';
-import { ContextModel } from '../context.model';
+import { DomSanitizer } from '@angular/platform-browser';
+import { MatIconRegistry } from '@angular/material/icon';
 import { ContextService } from '../context.service';
 import { Page } from 'src/app/shared/model/page.model';
+import { PageEvent } from '@angular/material/paginator';
+import { ContextModel } from '../context.model';
 
 
 export interface Contract {
@@ -14,41 +15,57 @@ export interface Contract {
 }
 
 @Component({
-  selector: 'app-listagem-contextos',
+  selector: 'app-list-context',
   templateUrl: './list-context.component.html',
   styleUrls: ['./list-context.component.css']
 })
 
 export class ListContextComponent implements OnInit {
 
-  pageContexts: Page<ContextModel> | undefined ;
+  currentsPageContexts: Page<ContextModel> | undefined;
+  pageEvent: PageEvent | undefined;
+  datasource: ContextModel[] | undefined;
+  pageIndex: number | undefined;
+  pageSize: number | undefined;
+  length: number | undefined;
 
 
   constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private contextService: ContextService) {
     iconRegistry.addSvgIcon(
-        'view-button',
-        sanitizer.bypassSecurityTrustResourceUrl('assets/view-button.svg'));
+      'view-button',
+      sanitizer.bypassSecurityTrustResourceUrl('assets/view-button.svg'));
   }
 
   ngOnInit(): void {
-    this.getAllContexts();
+    this.getServerData(undefined);
   }
 
-  get contexts(){
-    return this.pageContexts?.content;
+  get contexts() {
+    return this.currentsPageContexts?.content;
   }
 
-  getAllContexts(){
-    this.contextService.findAllContextPerPage().subscribe(
-      result => {
-        console.log(result);
-        this.pageContexts = result;
+  getImage(imageUrl: string) {
+    console.log(imageUrl)
+    return imageUrl !== undefined && imageUrl !== null && imageUrl !== '' ? imageUrl : '../../../assets/img/image-not-found.png';
+  }
+
+  openContextView() {
+    console.log("Redirecionar para a tela de ver desafios")
+  }
+
+  getServerData(event?: PageEvent) {
+    this.contextService.findAllContextPerPage(event?.pageIndex, event?.pageSize, true).subscribe(
+      response => {
+        this.datasource = response.content;
+        this.pageIndex = response.number;
+        this.pageSize = response.size;
+        this.length = response.totalElements;
+      },
+      error => {
+        console.log("Pagination Error")
       }
     );
-  }
-
-  getImage(imageUrl: string){
-    return imageUrl !== undefined && imageUrl !== null && imageUrl !== '' ? imageUrl : '../../../assets/img/image-not-found.png';
+    return event;
   }
 
 

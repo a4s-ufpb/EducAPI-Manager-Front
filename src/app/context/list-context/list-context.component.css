@@ -1,84 +1,43 @@
+.container{
+    background: #F2F2F2;
+}
+
+
 #header {
-    background-color: #14A6A6;
-    width: 400px;
-    height: 60px;
-    border-radius: 10px;
-    color: #ffffff;
-    display: -webkit-flex;
     display: flex;
-    align-items: center;
-    padding-left: 50px;
-    font-family: Roboto;
-    font-style: bold;
-    font-weight: 550;
-    font-size: 25px;
-}
-
-.mat-grid-tile {
-    background: #f2f2f2;
-}
-
-.contexto {
-    width: 348px;
-    height: 400px;
-}
-
-mat-card-content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-}
-
-.miniMenu {
-    display: flex;
-    flex-direction: row-reverse;
-    flex-grow: 1;
-}
-
-.menuIcon {
-    background-color: Transparent;
-    background-repeat:no-repeat;
-    border: none;
-    cursor:pointer;
-    overflow: hidden;
-    outline:none;
-
-}
-
-.imagem {
-    border-radius: 10px !important;
-    width: 80%;
-    margin-top: 10px;
-}
-
-mat-card-actions{
-    display: flex;
-    flex-direction: row-reverse;
-}
-
-.view {
-    border-style: none;
-    border-radius: 10px;
+    margin-top: 39px;
+    margin-bottom: 12px;
+    padding: 10px 30px;
     background: #14A6A6;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-bottom: 8px;
-    color: #ffffff;
-    font-family: Roboto;
-    font-style: bold;
-    font-weight: 450;
-    font-size: 15px;
-    line-height: 20px;
+    color: #fff;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 37px;
     text-align: center;
+    width: 400px;
+    border-radius: 0px 15px 15px 0px;
+    position: relative;
 }
 
-.view:hover{
-    cursor: pointer;
-    background: #057878;
+.name-user {
+    font-weight: bolder;
+    color: #535353;
 }
 
-.mat-icon {
-    vertical-align: top;
-    font-size: 1.25em;
+.email-user{
+    font-weight: bold;
+    color: #535353;
+
 }
+
+.card {
+    max-width: 348px;
+}
+
+.id-context{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+
