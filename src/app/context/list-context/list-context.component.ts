@@ -5,6 +5,8 @@ import { ContextService } from '../context.service';
 import { Page } from 'src/app/shared/model/page.model';
 import { PageEvent } from '@angular/material/paginator';
 import { ContextModel } from '../context.model';
+import { UserModel } from 'src/app/auth/session/user.model';
+import { StorageService } from 'src/app/auth/session/storage.service';
 
 
 export interface Contract {
@@ -30,7 +32,10 @@ export class ListContextComponent implements OnInit {
   length: number | undefined;
 
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private contextService: ContextService) {
+  constructor(iconRegistry: MatIconRegistry, 
+    sanitizer: DomSanitizer, 
+    private contextService: ContextService, 
+    private storage: StorageService) {
     iconRegistry.addSvgIcon(
       'view-button',
       sanitizer.bypassSecurityTrustResourceUrl('assets/view-button.svg'));
@@ -68,5 +73,8 @@ export class ListContextComponent implements OnInit {
     return event;
   }
 
+  loggedUserIsOwner(creator: UserModel) {
+    return creator.email === this.storage.getLocalUser()?.email;
+  }
 
 }

@@ -21,11 +21,11 @@
                       <mat-icon>visibility</mat-icon>
                       <span>Ver detalhes</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item *ngIf="loggedUserIsOwner(context.creator)">
                       <mat-icon>edit</mat-icon>
                       <span>Editar contexto</span>
                     </button>
-                    <button mat-menu-item>
+                    <button mat-menu-item *ngIf="loggedUserIsOwner(context.creator)">
                       <mat-icon>delete</mat-icon>
                       <span>Excluir contexto</span>
                     </button>
