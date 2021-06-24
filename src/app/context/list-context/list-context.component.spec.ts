@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditarPerfilComponent } from './editar-perfil.component';
+import { ListContextComponent } from './list-context.component';
 
-describe('EditarPerfilComponent', () => {
-  let component: EditarPerfilComponent;
-  let fixture: ComponentFixture<EditarPerfilComponent>;
+describe('ListagemContextosComponent', () => {
+  let component: ListContextComponent;
+  let fixture: ComponentFixture<ListContextComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditarPerfilComponent ]
+      declarations: [ ListContextComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditarPerfilComponent);
+    fixture = TestBed.createComponent(ListContextComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,59 @@
+<div class="container">
+  <div id="header">
+    Contextos
+  </div>
+  <div style="margin-left: 20px; margin-top: 79px;">
+    <mat-grid-list cols="3" rowHeight="1:1.15">
+      <mat-grid-tile *ngFor="let context of datasource">
+        <mat-card>
+          <mat-card-header style="width: 100%;" fxLayout="column" style="padding-left:10px">
+            <div>
+              <div fxLayout="row" style="width: 100%;" style="padding-left:2px">
+                <div fxLayoutAlign="start center" fxFlex="50">
+                  <a class="id-context">#{{context.id}}</a>
+                </div>
+                <div fxLayoutAlign="end center" fxFlex="50">
+                  <button mat-icon-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button mat-menu-item>
+                      <mat-icon>visibility</mat-icon>
+                      <span>Ver detalhes</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>edit</mat-icon>
+                      <span>Editar contexto</span>
+                    </button>
+                    <button mat-menu-item>
+                      <mat-icon>delete</mat-icon>
+                      <span>Excluir contexto</span>
+                    </button>
+                  </mat-menu>
+                </div>
+              </div>
+            </div>
+            <div>
+              <mat-card-title>{{context?.name}}</mat-card-title>
+              <mat-card-subtitle>{{context.creator?.name}}</mat-card-subtitle>
+            </div>
+
+
+            <mat-card-content style="padding-top:31px; padding-bottom:31px; padding-left: 38px; padding-right: 38px;">
+              <img mat-card-image [src]="getImage(context.imageUrl)" alt="Photo of a Shiba Inu"
+                style="border-radius: 10%; object-fit: cover; width: 265px; height: 181px;">
+            </mat-card-content>
+
+            <mat-card-actions fxLayoutAlign="end center" style="padding-right: 25px; padding-bottom: 37px;">
+              <button mat-flat-button color="primary">
+                <mat-icon style="color: #FFFFFF;" (click)="openContextView()">visibility</mat-icon> Ver desafios
+              </button>
+            </mat-card-actions>
+          </mat-card-header>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <mat-paginator #paginator [length]="length" [pageIndex]="pageIndex" [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageEvent = getServerData($event)"></mat-paginator>
+</div>
