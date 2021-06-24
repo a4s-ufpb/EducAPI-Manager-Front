@@ -25,7 +25,7 @@
                       <mat-icon>edit</mat-icon>
                       <span>Editar contexto</span>
                     </button>
-                    <button mat-menu-item *ngIf="loggedUserIsOwner(context.creator)">
+                    <button mat-menu-item *ngIf="loggedUserIsOwner(context.creator)" (click)="openDialogDelete(context)">
                       <mat-icon>delete</mat-icon>
                       <span>Excluir contexto</span>
                     </button>

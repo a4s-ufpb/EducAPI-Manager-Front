@@ -10,6 +10,8 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { DeleteContextComponent } from './delete-context/delete-context.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 @NgModule({
@@ -23,7 +25,8 @@ import { DeleteContextComponent } from './delete-context/delete-context.componen
     MatCardModule,
     MatMenuModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatDialogModule,
   ]
 })
 export class ContextModule { }

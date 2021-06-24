@@ -7,6 +7,9 @@ import { PageEvent } from '@angular/material/paginator';
 import { ContextModel } from '../context.model';
 import { UserModel } from 'src/app/auth/session/user.model';
 import { StorageService } from 'src/app/auth/session/storage.service';
+import {MatDialog} from '@angular/material/dialog';
+import { DeleteContextComponent } from '../delete-context/delete-context.component';
+
 
 
 export interface Contract {
@@ -35,7 +38,9 @@ export class ListContextComponent implements OnInit {
   constructor(iconRegistry: MatIconRegistry, 
     sanitizer: DomSanitizer, 
     private contextService: ContextService, 
-    private storage: StorageService) {
+    private storage: StorageService,
+    public dialogDeleteUser: MatDialog,
+    ) {
     iconRegistry.addSvgIcon(
       'view-button',
       sanitizer.bypassSecurityTrustResourceUrl('assets/view-button.svg'));
@@ -50,7 +55,6 @@ export class ListContextComponent implements OnInit {
   }
 
   getImage(imageUrl: string) {
-    console.log(imageUrl)
     return imageUrl !== undefined && imageUrl !== null && imageUrl !== '' ? imageUrl : '../../../assets/img/image-not-found.png';
   }
 
@@ -75,6 +79,20 @@ export class ListContextComponent implements OnInit {
 
   loggedUserIsOwner(creator: UserModel) {
     return creator.email === this.storage.getLocalUser()?.email;
+  }
+
+  openDialogDelete(context: ContextModel){
+    const dialogDeleteUser = this.dialogDeleteUser.open(DeleteContextComponent);
+    dialogDeleteUser.componentInstance.context=context;
+    dialogDeleteUser.componentInstance.saveEvent.subscribe(
+      result => {
+        dialogDeleteUser.close();
+        this.getServerData(undefined);
+      }
+    );
+    dialogDeleteUser.componentInstance.cancelEvent.subscribe(
+      result => dialogDeleteUser.close()
+    );
   }
 
 }

@@ -5,6 +5,7 @@ import { UserService } from '../user.service';
 import {MatDialog} from '@angular/material/dialog';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { ContextModel } from 'src/app/context/context.model';
+import { DeleteContextComponent } from 'src/app/context/delete-context/delete-context.component';
 
 @Component({
   selector: 'app-view-profile',
@@ -20,6 +21,7 @@ export class ViewProfileComponent implements OnInit {
     private userService: UserService,
     private storage: StorageService,
     public dialogEditUser: MatDialog,
+    public dialogDeleteUser: MatDialog,
   ) { }
 
   ngOnInit(): void {
@@ -65,7 +67,17 @@ export class ViewProfileComponent implements OnInit {
     return imageUrl !== undefined && imageUrl !== null && imageUrl !== '' ? imageUrl : '../../../assets/img/image-not-found.png';
   }
 
-  opendialogDelete(){
-
+  openDialogDelete(context: ContextModel){
+    const dialogDeleteUser = this.dialogDeleteUser.open(DeleteContextComponent);
+    dialogDeleteUser.componentInstance.context=context;
+    dialogDeleteUser.componentInstance.saveEvent.subscribe(
+      result => {
+        dialogDeleteUser.close();
+        this.getUserContexts();
+      }
+    );
+    dialogDeleteUser.componentInstance.cancelEvent.subscribe(
+      result => dialogDeleteUser.close()
+    );
   }
 }
