@@ -17,12 +17,6 @@ const routes: Routes = [
       canLoad: [],
       canActivate: [],
     },
-    {
-      path: 'edit',
-      component: EditProfileComponent,
-      canLoad: [],
-      canActivate: [],
-    },
 ];
 
 

@@ -31,11 +31,13 @@ export class ViewProfileComponent implements OnInit {
   }
 
   openToEditUser(){
-    console.log("Open edit User")
     const dialogEditUser = this.dialogEditUser.open(EditProfileComponent);
-    dialogEditUser.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
-    });
+    dialogEditUser.componentInstance.saveEvent.subscribe(
+      result => dialogEditUser.close()
+    );
+    dialogEditUser.componentInstance.cancelEvent.subscribe(
+      result => dialogEditUser.close()
+    );
   }
 
   openContextView(){

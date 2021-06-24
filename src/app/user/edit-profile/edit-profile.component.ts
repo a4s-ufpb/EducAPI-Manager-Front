@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { StorageService } from 'src/app/auth/session/storage.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -8,17 +11,44 @@ import { Router } from '@angular/router';
 })
 export class EditProfileComponent implements OnInit {
   hide = true;
-  hide2 = true;
+  isPassword = true;
+  public editProfileFormGroup!: FormGroup;
+  public saveEvent = new EventEmitter();
+  public cancelEvent = new EventEmitter();
 
-  constructor( private router:Router) { }
+
+  constructor(private router: Router,
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private storageService: StorageService,
+  ) { }
 
   ngOnInit(): void {
+    this.buildForm();
   }
+
+  buildForm() {
+    this.editProfileFormGroup = this.formBuilder.group({
+      name: [this.getUserName(), []],
+      password: [undefined, []],
+      confirmPassword: [undefined, []],
+    });
+  }
+
+  getUserName(){
+    return this.storageService.getLocalUser()?.name;
+  }
+
   save(): void {
-    this.router.navigate([''])
+    console.log("Salvando");
+    this.userService.updateUser(this.editProfileFormGroup?.get('name')?.value, this.editProfileFormGroup?.get('password')?.value).subscribe(
+      result => this.saveEvent.emit()
+    );
+    console.log("Update ok");
   }
+
   end(): void {
-    this.router.navigate([''])
+    this.cancelEvent.emit();
   }
 
 }

@@ -11,6 +11,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatDialogModule} from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -26,8 +28,9 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatButtonModule,
     MatMenuModule,
     MatGridListModule,
-    MatFormFieldModule,
-    MatDialogModule
+    MatInputModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ]
 })
 export class UserModule { }
