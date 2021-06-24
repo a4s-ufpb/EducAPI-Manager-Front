@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="header section">
+        <img class="logo" src="..\..\assets\logo.svg" alt="logo" (click)="redirectHome()">
+    </div>
+    <div class="section">
+        <mat-card class="content">
+            <mat-card-header>
+                <mat-card-title fxLayoutAlign="center center" style="font-weight: bold;">Cadastre-se com o seu e-mail</mat-card-title>
+                <mat-card-subtitle fxLayoutAlign="center center">Cadastre-se para criar contextos e desafios</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <form [formGroup]="registerFormGroup" fxLayout="column">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input matInput type="email" formControlName="email" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nome de usuário</mat-label>
+                        <input matInput type="text" formControlName="name" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Senha</mat-label>
+                        <input matInput [type]="isPassword ? 'password' : 'text'" formControlName="password" required>
+                        <button mat-icon-button matSuffix (click)="isPassword = !isPassword"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isPassword">
+                            <mat-icon>{{isPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </form>
+                <button mat-flat-button color="accent" (click)="submit()" class="button">Cadastrar</button>
+            </mat-card-content>
+            <mat-card-actions>
+                <mat-divider [inset]="true"></mat-divider>
+                <div fxLayoutAlign="center center" fxLayout="column">
+                <a fxLayoutAlign="center center" style="margin-top: 26px;">Já sou cadastrado, desejo fazer</a>
+                    <a><a
+                        routerLink="../login" style="color: #14A6A6;">login</a>.</a>
+                    </div>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

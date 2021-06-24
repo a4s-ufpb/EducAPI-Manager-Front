@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Context } from 'vm';
+import { ContextService } from '../context.service';
 
 @Component({
   selector: 'app-cadastra-contexto',
@@ -8,7 +10,15 @@ import { Router } from '@angular/router';
 })
 export class CadastraContextoComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(
+    
+    private router:Router,
+    private contextService:ContextService,
+
+    ) {
+
+
+   }
 
   ngOnInit(): void {
   }
