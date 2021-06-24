@@ -64,4 +64,8 @@ export class ViewProfileComponent implements OnInit {
   getImage(imageUrl: string){
     return imageUrl !== undefined && imageUrl !== null && imageUrl !== '' ? imageUrl : '../../../assets/img/image-not-found.png';
   }
+
+  opendialogDelete(){
+
+  }
 }

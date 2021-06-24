@@ -9,10 +9,11 @@ import { ListContextComponent } from './list-context/list-context.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { DeleteContextComponent } from './delete-context/delete-context.component';
 
 
 @NgModule({
-  declarations: [ListContextComponent],
+  declarations: [ListContextComponent, DeleteContextComponent],
   imports: [
     CommonModule,
     ContextRoutingModule,
