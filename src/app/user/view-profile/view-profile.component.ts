@@ -7,6 +7,8 @@ import { EditProfileComponent } from '../edit-profile/edit-profile.component';
 import { ContextModel } from 'src/app/context/context.model';
 import { DeleteContextComponent } from 'src/app/context/delete-context/delete-context.component';
 
+
+
 @Component({
   selector: 'app-view-profile',
   templateUrl: './view-profile.component.html',
@@ -27,7 +29,7 @@ export class ViewProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUserContexts();
   }
-  
+
   redirectToContextHome(){
     this.router.navigate(['../contexts/list']);
   }

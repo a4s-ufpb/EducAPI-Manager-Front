@@ -4,6 +4,7 @@ import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { RegisterContextComponent } from '../context/register-context/register-context.component';
 import { ContextModel } from '../context/context.model';
 import { ContextService } from '../context/context.service';
 import { EditProfileComponent } from '../user/edit-profile/edit-profile.component';
@@ -21,7 +22,9 @@ export class NavBarComponent implements OnInit {
   constructor(private router: Router,
     private authService: AuthService,
     public dialogEditUser: MatDialog,
-    private contextService: ContextService) { }
+    private contextService: ContextService,
+    public dialogRegisterContext: MatDialog,
+    ) { }
 
   ngOnInit(): void {
   }
@@ -43,9 +46,18 @@ export class NavBarComponent implements OnInit {
   sair(): void {
     this.authService.logout();
   }
+  
   criar(): void {
-    this.router.navigate([''])
+    const dialogRegisterContext = this.dialogRegisterContext.open(RegisterContextComponent);
+    dialogRegisterContext.componentInstance.saveEvent.subscribe(
+      result => dialogRegisterContext.close()
+      );
+    dialogRegisterContext.componentInstance.cancelEvent.subscribe(
+      result => dialogRegisterContext.close()
+    );
   }
+
+
   home(): void {
     this.router.navigate(['/contexts/list'])
   }

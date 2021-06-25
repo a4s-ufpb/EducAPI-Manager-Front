@@ -57,4 +57,8 @@ export class ContextService {
     deleteContext(idContext: number) {
         return this.http.delete<ContextModel>(`${this.baseURL}/v1/api/auth/contexts/${idContext}`);
     }
+
+    save(contexto:ContextModel): Observable<ContextModel>{
+        return this.http.post<ContextModel>(`${this.baseURL}/v1/api/contexts`, contexto );
+    }
 }

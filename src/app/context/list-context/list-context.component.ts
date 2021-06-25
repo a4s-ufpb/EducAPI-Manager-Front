@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
-import { ContextService } from '../context.service';
 import { Page } from 'src/app/shared/model/page.model';
 import { PageEvent } from '@angular/material/paginator';
 import { ContextModel } from '../context.model';
@@ -11,6 +10,7 @@ import {MatDialog} from '@angular/material/dialog';
 import { DeleteContextComponent } from '../delete-context/delete-context.component';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { FilterBottomSheetComponent } from './filter-bottom-sheet';
+import { ContextService } from '../context.service';
 
 
 
