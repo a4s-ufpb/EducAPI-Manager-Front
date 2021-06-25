@@ -9,10 +9,11 @@ import { ListContextComponent } from '../contextos/list-context/list-context.com
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { CadastraContextoComponent } from './cadastra-contexto/cadastra-contexto.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [ListContextComponent],
+  declarations: [ListContextComponent, CadastraContextoComponent],
   imports: [
     CommonModule,
     ContextRoutingModule,
@@ -22,7 +23,12 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatCardModule,
     MatMenuModule,
     MatGridListModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule
+  ],
+  providers:[
+
   ]
 })
 export class ContextModule { }

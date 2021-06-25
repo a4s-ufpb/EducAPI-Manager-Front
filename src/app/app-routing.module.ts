@@ -25,7 +25,7 @@ const routes: Routes = [
     canActivate: [],
   },
 
-  
+
   {
     path: 'user',
     loadChildren: () =>
@@ -36,7 +36,7 @@ const routes: Routes = [
   {
     path: 'contexts',
     loadChildren: () =>
-      import('./context/context.module').then((m) => m.ContextModule),
+      import('./contextos/context.module').then((m) => m.ContextModule),
     canLoad: [],
     canActivate: [],
   },
@@ -48,17 +48,15 @@ const routes: Routes = [
       breadcrumb: 'Home',
     },
 
-  
+
   },
 
   {
 
     path: "desafios",
     component: CadastorDesafiosComponent
-  },{
-    path: "contextos",
-    component: CadastraContextoComponent
-  },{
+  },
+  {
     path: "edicaoContexto",
     component: EdicaoContextoComponent
   },{

@@ -4,13 +4,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CadastorDesafiosComponent } from './desafios/cadastor-desafios/cadastor-desafios.component';
-import { CadastraContextoComponent } from './contextos/cadastra-contexto/cadastra-contexto.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
-
 import { HeaderComponent } from './CadastroUsuário/header.component';
 import { EdicaoContextoComponent } from './contextos/edicaoContexto/edicao-contexto/edicao-contexto.component';
 import { EdicaoDesafioComponent } from './desafios/edicaoDesafio/edicao-desafio/edicao-desafio.component';
@@ -31,12 +28,10 @@ import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
   declarations: [
     AppComponent,
     CadastorDesafiosComponent,
-
     HeaderComponent,
-    CadastraContextoComponent,
     EdicaoContextoComponent,
     EdicaoDesafioComponent,
-   
+
 
   ],
   imports: [
