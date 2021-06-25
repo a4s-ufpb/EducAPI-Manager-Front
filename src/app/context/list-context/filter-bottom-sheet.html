@@ -1,0 +1,20 @@
+<div>
+    <h1 class="title">Filtros</h1>
+    <h2 class="subtitle">Digite o e-mail do usuário que você deseja filtrar e clique em salvar</h2>
+    <mat-form-field appearance="outline" style="width: 100%;">
+        <mat-label>Email do usuário</mat-label>
+        <input matInput placeholder="E-mail do usuário" [formControl]="userEmail">
+    </mat-form-field>
+    <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="32px">
+        <button mat-button (click)="save()" class="save">
+            <i class="material-icons">
+              done
+            </i> Salvar
+          </button>
+          <button mat-flat-button color="warn" (click)="end()" class="cancel">
+            <i class="material-icons">
+              close
+            </i> Cancelar
+          </button>
+    </div>
+</div>
