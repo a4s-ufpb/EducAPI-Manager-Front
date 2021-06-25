@@ -1,7 +1,12 @@
 <div class="container">
   <app-nav-bar></app-nav-bar>
-  <div id="header">
-    Contextos
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <div id="header" fxFlex="50">
+      Contextos
+    </div>
+    <div fxFlex="50" class="button-filter" fxLayoutAlign="end center">
+      <button mat-fab color="primary" mat-raised-button (click)="openBottomSheet()"><mat-icon>filter_alt</mat-icon></button>
+    </div>
   </div>
   <div style="margin-left: 20px; margin-top: 79px;">
     <mat-grid-list cols="3" rowHeight="1:1.15">

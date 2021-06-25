@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 import { ContextService } from '../context.service';
@@ -9,6 +9,8 @@ import { UserModel } from 'src/app/auth/session/user.model';
 import { StorageService } from 'src/app/auth/session/storage.service';
 import {MatDialog} from '@angular/material/dialog';
 import { DeleteContextComponent } from '../delete-context/delete-context.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { FilterBottomSheetComponent } from './filter-bottom-sheet';
 
 
 
@@ -33,6 +35,8 @@ export class ListContextComponent implements OnInit {
   pageIndex: number | undefined;
   pageSize: number | undefined;
   length: number | undefined;
+  panelOpenState = false;
+  email: string | undefined;
 
 
   constructor(iconRegistry: MatIconRegistry, 
@@ -40,6 +44,7 @@ export class ListContextComponent implements OnInit {
     private contextService: ContextService, 
     private storage: StorageService,
     public dialogDeleteUser: MatDialog,
+    private _bottomSheet: MatBottomSheet
     ) {
     iconRegistry.addSvgIcon(
       'view-button',
@@ -63,7 +68,7 @@ export class ListContextComponent implements OnInit {
   }
 
   getServerData(event?: PageEvent) {
-    this.contextService.findAllContextPerPage(event?.pageIndex, event?.pageSize, true).subscribe(
+    this.contextService.findAllContextPerPage(event?.pageIndex, event?.pageSize, true, '', this.email).subscribe(
       response => {
         this.datasource = response.content;
         this.pageIndex = response.number;
@@ -92,6 +97,22 @@ export class ListContextComponent implements OnInit {
     );
     dialogDeleteUser.componentInstance.cancelEvent.subscribe(
       result => dialogDeleteUser.close()
+    );
+  }
+
+  openBottomSheet(): void {
+    const btn = this._bottomSheet.open(FilterBottomSheetComponent);
+    btn.instance.saveEvent.subscribe(
+      result =>{
+        this.email = result;
+        this.getServerData(undefined);
+        btn.dismiss();
+      }
+    );
+    btn.instance.cancelEvent.subscribe(
+      result =>{
+        btn.dismiss();
+      }
     );
   }
 

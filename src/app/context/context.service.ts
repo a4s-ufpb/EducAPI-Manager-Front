@@ -21,17 +21,40 @@ export class ContextService {
     }
 
 
-    findAllContextPerPage(page:number | undefined = 0, pageSize: number | undefined = 25, paged: boolean | undefined = true, name: string = ''): Observable<Page<ContextModel>> {
-        const paginationParam = new HttpParams()
-        .set('page', String(page))
-        .set('size', String(pageSize))
-        .set('paged', String(paged))
-        .set('unpaged', String(!paged))
-        .set('name', name);
+    findAllContextPerPage(page: number | undefined = 0,
+        pageSize: number | undefined = 25,
+        paged: boolean | undefined = true,
+        name: string = '',
+        email: string = ''): Observable<Page<ContextModel>> {
+        var paginationParam = undefined;
+        if (!(name !== null && name !== undefined && name !== '')
+            && !(email !== null && email !== undefined && email !== '')) {
+            paginationParam = new HttpParams()
+                .set('page', String(page))
+                .set('size', String(pageSize))
+                .set('paged', String(paged))
+                .set('unpaged', String(!paged));
+        }
+        if (name !== null && name !== undefined && name !== '') {
+            paginationParam = new HttpParams()
+                .set('page', String(page))
+                .set('size', String(pageSize))
+                .set('paged', String(paged))
+                .set('unpaged', String(!paged))
+                .set('name', name);
+        }
+        if (email !== null && email !== undefined && email !== '') {
+            paginationParam = new HttpParams()
+                .set('page', String(page))
+                .set('size', String(pageSize))
+                .set('paged', String(paged))
+                .set('unpaged', String(!paged))
+                .set('email', email);
+        }
         return this.http.get<Page<ContextModel>>(`${this.baseURL}/v1/api/contexts`, { params: paginationParam });
     }
 
-    deleteContext(idContext: number){
+    deleteContext(idContext: number) {
         return this.http.delete<ContextModel>(`${this.baseURL}/v1/api/auth/contexts/${idContext}`);
     }
 }
