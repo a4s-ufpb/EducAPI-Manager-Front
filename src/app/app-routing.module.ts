@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+
 const routes: Routes = [
   {
     path: '',
@@ -14,6 +15,8 @@ const routes: Routes = [
     canLoad: [],
     canActivate: [],
   },
+
+
   {
     path: 'user',
     loadChildren: () =>

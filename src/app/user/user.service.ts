@@ -8,9 +8,6 @@ import { StorageService } from '../auth/session/storage.service';
 import { UserModel } from '../auth/session/user.model';
 import { ContextModel } from '../context/context.model';
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,7 +15,7 @@ export class UserService {
   private API = environment.apiUrl;
 
   private baseURL = `${this.API}`;
-   
+
 
   constructor(
     private http: HttpClient,

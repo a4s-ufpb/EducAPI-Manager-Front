@@ -3,7 +3,7 @@
     Edite seu perfil aqui
   </h1>
   <h3 mat-card-subtitle class="subtitle">
-    Clique no lápis para editar o seu nome de usuário, ou digite sua nova senha nos campos abaixo.
+    Clique no seu nome de usuário para editá-lo, ou digite sua nova senha nos campos abaixo.
   </h3>
   <mat-dialog-content>
     <form [formGroup]="editProfileFormGroup" fxLayout="column">
@@ -16,17 +16,21 @@
       <mat-form-field appearance="outline" class="senha">
         <mat-label>Nova senha</mat-label>
         <input matInput placeholder="Nova Senha" [type]="hide ? 'password' : 'text'"  formControlName="password">
+        <mat-error *ngIf="password?.invalid">Sua possui menos de 8 caractéres</mat-error>
         <mat-icon class="icon" matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
       </mat-form-field>
 
       <mat-form-field appearance="outline">
         <mat-label>Digite sua nova senha</mat-label>
         <input matInput [type]="isPassword ? 'password' : 'text'" placeholder="Confirme a nova senha"
-        formControlName="confirmPassword">
+        formControlName="confirmPassword" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="editProfileFormGroup.hasError('notSame')">Senhas não conhecidem</mat-error>
         <button mat-icon-button matSuffix (click)="isPassword = !isPassword" [attr.aria-label]="'Hide password'"
           [attr.aria-pressed]="isPassword">
           <mat-icon>{{isPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
+
+
       </mat-form-field>
 
     </form>

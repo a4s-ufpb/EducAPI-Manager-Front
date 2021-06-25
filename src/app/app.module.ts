@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CadastorDesafiosComponent } from './cadastor-desafios/cadastor-desafios.component';
+import { CadastorDesafiosComponent } from './desafios/cadastor-desafios/cadastor-desafios.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { AuthService } from './auth/auth.service';
@@ -31,6 +31,7 @@ import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
     FlexLayoutModule,
     HttpClientModule,
     CommonModule,
+    ToastrModule.forRoot(),
   ],
   providers: [
     { provide: LOCALE_ID, useValue: 'pt-BR' },

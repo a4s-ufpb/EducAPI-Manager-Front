@@ -1,0 +1,18 @@
+<div>
+    <h1 mat-dialog-title class="title">Excluir contexto</h1>
+    <h3 mat-dialog-subtitle class="subtitle">Você realmente deseja excluir este contexto?</h3>
+    <mat-dialog-content fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="32px">
+        <img [src]="getImage(context.imageUrl)" class="image-context">
+        <h2>{{context?.name}} (#{{context?.id}})</h2>
+    </mat-dialog-content>
+    <mat-dialog-actions fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="32px" >
+        <button mat-flat-button color="primary" class="save" (click)="deleteContext()">
+            <mat-icon>done</mat-icon>
+            <span>Sim</span>
+        </button>
+        <button mat-flat-button color="warn" class="cancel" (click)="end()">
+            <mat-icon>close</mat-icon>
+            <span>Não</span>
+        </button>
+    </mat-dialog-actions>
+</div>

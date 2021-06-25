@@ -1,10 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
-import { ContextService } from '../context.service';
 import { Page } from 'src/app/shared/model/page.model';
 import { PageEvent } from '@angular/material/paginator';
 import { ContextModel } from '../context.model';
+import { UserModel } from 'src/app/auth/session/user.model';
+import { StorageService } from 'src/app/auth/session/storage.service';
+import {MatDialog} from '@angular/material/dialog';
+import { DeleteContextComponent } from '../delete-context/delete-context.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { FilterBottomSheetComponent } from './filter-bottom-sheet';
+import { ContextService } from '../context.service';
+
 
 
 export interface Contract {
@@ -28,9 +35,17 @@ export class ListContextComponent implements OnInit {
   pageIndex: number | undefined;
   pageSize: number | undefined;
   length: number | undefined;
+  panelOpenState = false;
+  email: string | undefined;
 
 
-  constructor(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer, private contextService: ContextService) {
+  constructor(iconRegistry: MatIconRegistry, 
+    sanitizer: DomSanitizer, 
+    private contextService: ContextService, 
+    private storage: StorageService,
+    public dialogDeleteUser: MatDialog,
+    private _bottomSheet: MatBottomSheet
+    ) {
     iconRegistry.addSvgIcon(
       'view-button',
       sanitizer.bypassSecurityTrustResourceUrl('assets/view-button.svg'));
@@ -45,7 +60,6 @@ export class ListContextComponent implements OnInit {
   }
 
   getImage(imageUrl: string) {
-    console.log(imageUrl)
     return imageUrl !== undefined && imageUrl !== null && imageUrl !== '' ? imageUrl : '../../../assets/img/image-not-found.png';
   }
 
@@ -54,7 +68,7 @@ export class ListContextComponent implements OnInit {
   }
 
   getServerData(event?: PageEvent) {
-    this.contextService.findAllContextPerPage(event?.pageIndex, event?.pageSize, true).subscribe(
+    this.contextService.findAllContextPerPage(event?.pageIndex, event?.pageSize, true, '', this.email).subscribe(
       response => {
         this.datasource = response.content;
         this.pageIndex = response.number;
@@ -68,5 +82,38 @@ export class ListContextComponent implements OnInit {
     return event;
   }
 
+  loggedUserIsOwner(creator: UserModel) {
+    return creator.email === this.storage.getLocalUser()?.email;
+  }
+
+  openDialogDelete(context: ContextModel){
+    const dialogDeleteUser = this.dialogDeleteUser.open(DeleteContextComponent);
+    dialogDeleteUser.componentInstance.context=context;
+    dialogDeleteUser.componentInstance.saveEvent.subscribe(
+      result => {
+        dialogDeleteUser.close();
+        this.getServerData(undefined);
+      }
+    );
+    dialogDeleteUser.componentInstance.cancelEvent.subscribe(
+      result => dialogDeleteUser.close()
+    );
+  }
+
+  openBottomSheet(): void {
+    const btn = this._bottomSheet.open(FilterBottomSheetComponent);
+    btn.instance.saveEvent.subscribe(
+      result =>{
+        this.email = result;
+        this.getServerData(undefined);
+        btn.dismiss();
+      }
+    );
+    btn.instance.cancelEvent.subscribe(
+      result =>{
+        btn.dismiss();
+      }
+    );
+  }
 
 }
