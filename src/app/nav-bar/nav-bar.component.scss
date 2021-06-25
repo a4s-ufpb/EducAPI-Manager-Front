@@ -1,0 +1,111 @@
+.nav-bar {
+  width: 100%;
+  height: 100px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: #ebebeb;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+
+  ::ng-deep .mat-form-field-flex > .mat-form-field-infix { border-top: 10px solid transparent; }
+
+  ::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 0px !important;}
+  
+  ::ng-deep .mat-form-field-label-wrapper { top: -1.5em; }
+  
+  ::ng-deep .mat-form-field-appearance-outline.mat-form-field-can-float.mat-form-field-should-float .mat-form-field-label {
+      transform: translateY(-1.1em) scale(.75);
+      width: 133.33333%;
+  }
+  
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0px;
+  }
+
+  /* default and hover color */
+  ::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: #ebebeb;
+  }
+
+  /* focused color */
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #ebebeb;
+  }
+
+  /* floating label color */
+  ::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-label { 
+    color: #ebebeb; 
+  }
+
+  .mat-input-element::placeholder{
+    color: #A79F9F;
+    font-weight: bolder;
+  }
+
+}
+
+.search{
+  width: 732px;
+}
+
+.logo {
+  cursor: pointer;
+  width: 260px;
+  height: 39px;
+  left: 30px;
+  top: 30px;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 30px;
+  line-height: 37px;
+  text-align: center;
+  color: #14a6a6;
+}
+
+.snackbutton {
+  right: 58px;
+  left: 1315px;
+  top: 16px;
+  margin-left: 53px;
+  background: none;
+  border: none;
+  color: #14a6a6;
+}
+
+.a {
+  width: 67px;
+  height: 67px;
+}
+
+.button-search{
+  color: #14A6A6;
+}
+
+.button-search:hover{
+  cursor: pointer;
+}
+
+.button {
+  width: 104px;
+  height: 49.47px;
+  left: 1158px;
+  top: 24px;
+  margin-left: 72px;
+  background-color: #5aba38;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: #ffffff;
+  border-radius: 10px;
+  border-color: #ffffff;
+}

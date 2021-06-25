@@ -1,30 +1,44 @@
-<mat-toolbar class="nav-bar mat-elevation-z4 ">
-  <div class="divBusca">
-    <input type="text" class="txtBusca" placeholder="Buscar..." />
-    <i class="material-icons" alt="Buscar...">
-      search
-    </i>
-  </div>
+<div fxLayout="row">
 
-  <a (click)="home()" class="logo">
-    EducaManager
-  </a>
+  <mat-toolbar class="nav-bar mat-elevation-z4 ">
+    <a (click)="home()" class="logo">
+      EducaManager
+    </a>
 
-  <button [matMenuTriggerFor]="menu" class="snackbutton">
-    <img class="a" src="assets/perfil.svg" alt="logo">
-  </button>
+    <div>
+      <mat-form-field appearance="outline" class="search">
+        <input matInput type="text" placeholder="Buscar..." [formControl]="search" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)='selectOption($event)'
+          [displayWith]="itemDisplayFn">
+          <mat-option *ngFor="let option of resultContexts" [value]="option">
+            {{option?.name}} ({{option?.creator?.name}})
+          </mat-option>
+        </mat-autocomplete>
+        <mat-icon class="button-search" matSuffix (click)="stringSearch()">search</mat-icon>
+      </mat-form-field>
+    </div>
 
-  <mat-menu #menu="matMenu">
-    <button (click)="verPerfil()" mat-menu-item>
-      <mat-icon>visibility </mat-icon> Ver perfil
+
+    <button (click)="criar()" class="button"> Criar </button>
+
+
+    <button [matMenuTriggerFor]="menu" class="snackbutton">
+      <img class="a" src="assets/perfil.svg" alt="logo">
     </button>
-    <button (click)="editarPerfil()" mat-menu-item>
-      <mat-icon> edit</mat-icon> Editar perfil
-    </button>
-    <button (click)="sair()" mat-menu-item>
-      <mat-icon>arrow_right_alt</mat-icon> Sair
-    </button>
-  </mat-menu>
+    <mat-menu #menu="matMenu">
+      <button (click)="verPerfil()" mat-menu-item>
+        <mat-icon>visibility </mat-icon> Ver perfil
+      </button>
+      <button (click)="openDialogEditUser()" mat-menu-item>
+        <mat-icon> edit</mat-icon> Editar perfil
+      </button>
+      <button (click)="sair()" mat-menu-item>
+        <mat-icon>logout</mat-icon> Sair
+      </button>
+    </mat-menu>
 
-  <button (click)="criar()" class="button"> Criar </button>
-</mat-toolbar>
+
+  </mat-toolbar>
+
+
+</div>

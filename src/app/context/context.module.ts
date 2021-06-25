@@ -11,6 +11,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { DeleteContextComponent } from './delete-context/delete-context.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -27,6 +28,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatGridListModule,
     MatPaginatorModule,
     MatDialogModule,
+    SharedModule
   ]
 })
 export class ContextModule { }

@@ -1,6 +1,5 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable, NgZone } from "@angular/core";
-import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { environment } from "src/environments/environment";
 import { StorageService } from "../auth/session/storage.service";
@@ -18,17 +17,17 @@ export class ContextService {
 
     constructor(
         private http: HttpClient,
-        public storage: StorageService,
-        private router: Router,
-        private ngZone: NgZone) {
+        public storage: StorageService,) {
     }
 
 
-    findAllContextPerPage(page:number | undefined = 0, pageSize: number | undefined = 25, paged: boolean | undefined = true): Observable<Page<ContextModel>> {
+    findAllContextPerPage(page:number | undefined = 0, pageSize: number | undefined = 25, paged: boolean | undefined = true, name: string = ''): Observable<Page<ContextModel>> {
         const paginationParam = new HttpParams()
         .set('page', String(page))
         .set('size', String(pageSize))
-        .set('paged', String(paged));
+        .set('paged', String(paged))
+        .set('unpaged', String(!paged))
+        .set('name', name);
         return this.http.get<Page<ContextModel>>(`${this.baseURL}/v1/api/contexts`, { params: paginationParam });
     }
 

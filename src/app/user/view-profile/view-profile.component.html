@@ -1,4 +1,5 @@
 <div class="container" fxFill>
+    <app-nav-bar></app-nav-bar>
     <div style="margin-left: 30px;">
         <div style="margin-top: 34px;">
             <!-- rota -->
@@ -33,6 +34,9 @@
         </div>
         <div style="margin-left: 20px; margin-top: 97px;">
             <!-- Listar contextos dos usuários -->
+            <div *ngIf="userContexts?.length === 0" fxLayout="row" fxLayoutAlign="center cernter" fxFill>
+                <h2>Nenhum contexto cadastrado.</h2>
+            </div>
             <mat-grid-list cols="3" rowHeight="1:1.15">
 
                 <mat-grid-tile *ngFor="let context of userContexts">
