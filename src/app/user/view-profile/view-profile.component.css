@@ -1,0 +1,49 @@
+.container-view-profile{
+    margin-top: 150px;
+    background: #F2F2F2;
+}
+
+.title-context{
+    display: flex;
+    margin-top: 39px;
+    margin-bottom: 12px;
+    padding: 10px 30px;
+    background: #14A6A6;
+    color: #fff;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 37px;
+    text-align: center;
+    width: 400px;
+    border-radius: 0px 15px 15px 0px;
+    position: relative;
+}
+
+.name-user {
+    font-weight: bolder;
+    color: #535353;
+}
+
+.email-user{
+    font-weight: bold;
+    color: #535353;
+
+}
+
+.card {
+    max-width: 348px;
+}
+
+.id-context{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.redirectToContextHome:hover{
+    color:#14A6A6;
+}
+
+.color-rota{
+    color:#14A6A6;
+}

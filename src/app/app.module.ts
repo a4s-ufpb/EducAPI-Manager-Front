@@ -1,23 +1,25 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CadastorDesafiosComponent } from './cadastor-desafios/cadastor-desafios.component';
+import { CadastorDesafiosComponent } from './desafios/cadastor-desafios/cadastor-desafios.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
-
-import { HeaderComponent } from './header/header.component';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ToastrModule } from 'ngx-toastr';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { AuthService } from './auth/auth.service';
+import { StorageService } from './auth/session/storage.service';
+import { LoggedInGuard } from './auth/guard/loggedin.guard';
+import { AuthInterceptor } from './auth/interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     CadastorDesafiosComponent,
-    HeaderComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,10 +27,24 @@ import { HeaderComponent } from './header/header.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatInputModule,
-    MatIconModule
-
+    MatIconModule,
+    FlexLayoutModule,
+    HttpClientModule,
+    CommonModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt-BR' },
+    AuthService,
+    StorageService,
+    LoggedInGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    MatIconModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

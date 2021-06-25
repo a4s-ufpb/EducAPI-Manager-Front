@@ -1,0 +1,46 @@
+.title {
+    font-style: normal;
+    text-align: center;
+    color: #000000;
+  }
+  
+  .subtitle {
+    text-align: center;
+    font-size: 20px;
+    color: #979191;
+    margin-bottom: 20px;
+  }
+  
+  .save {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #5aba38;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+    border-color: #917d7d;
+  }
+  
+  .cancel {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 12px;
+    border-color: #ffffff;
+  }
+
+.image-context{
+      border-radius: 10%;
+      object-fit: cover;
+      width: 265px; 
+      height: 181px;
+  }

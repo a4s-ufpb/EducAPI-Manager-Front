@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://api.apps4society.dcx.ufpb.br/educapi'
 };
