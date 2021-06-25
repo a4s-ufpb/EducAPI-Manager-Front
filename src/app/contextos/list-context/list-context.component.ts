@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
-import { ContextService } from '../context.service';
 import { Page } from 'src/app/shared/model/page.model';
 import { PageEvent } from '@angular/material/paginator';
 import { ContextModel } from '../context.model';
+import { ContextService } from '../context.service';
+
 
 
 export interface Contract {

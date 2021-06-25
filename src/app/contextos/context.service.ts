@@ -31,4 +31,9 @@ export class ContextService {
         .set('paged', String(paged));
         return this.http.get<Page<ContextModel>>(`${this.baseURL}/v1/api/contexts`, { params: paginationParam });
     }
+
+    save(contexto:ContextModel): Observable<ContextModel>{
+        return this.http.post<ContextModel>(`${this.baseURL}/v1/api/contexts`, { params: contexto });
+    }
+
 }

@@ -1,28 +1,32 @@
+import { ListDesafiosComponent } from './list-desafios/list-desafios.component';
+import { EdicaoDesafioComponent } from './edicaoDesafio/edicao-desafio/edicao-desafio.component';
+import { CadastorDesafiosComponent } from './cadastor-desafios/cadastor-desafios.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { ContextRoutingModule } from './context-routing.module';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
-import { ListContextComponent } from './list-context/list-context.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DesafioRoutingModule } from './desafio-routing.module';
 
 @NgModule({
-  declarations: [ListContextComponent],
+  declarations: [CadastorDesafiosComponent, EdicaoDesafioComponent, ListDesafiosComponent],
   imports: [
     CommonModule,
-    ContextRoutingModule,
     FlexLayoutModule,
     MatButtonModule,
     MatIconModule,
     MatCardModule,
-    MatMenuModule,
     MatGridListModule,
-    MatPaginatorModule
-  ]
+    MatPaginatorModule,
+    FormsModule,
+    ReactiveFormsModule,
+    DesafioRoutingModule
+  ],
+  providers:[  ]
 })
-export class ContextModule { }
+export class DesafioModule { }

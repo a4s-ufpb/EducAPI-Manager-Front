@@ -15,7 +15,7 @@ const routes: Routes = [
       {
         path: 'context',
         loadChildren: () =>
-          import('../context/context.module').then(
+          import('../contextos/context.module').then(
             (m) => m.ContextModule
           ),
         data: {

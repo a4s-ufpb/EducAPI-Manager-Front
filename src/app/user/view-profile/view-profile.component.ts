@@ -4,7 +4,7 @@ import { StorageService } from 'src/app/auth/session/storage.service';
 import { UserService } from '../user.service';
 import {MatDialog} from '@angular/material/dialog';
 import { EditProfileComponent } from '../edit-profile/edit-profile.component';
-import { ContextModel } from 'src/app/context/context.model';
+import { ContextModel } from 'src/app/contextos/context.model';
 
 @Component({
   selector: 'app-view-profile',
@@ -25,7 +25,7 @@ export class ViewProfileComponent implements OnInit {
   ngOnInit(): void {
     this.getUserContexts();
   }
-  
+
   redirectToContextHome(){
     this.router.navigate(['../contexts/list']);
   }
