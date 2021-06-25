@@ -1,4 +1,3 @@
-import { DesafioModule } from './desafios/desafio.module';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -24,7 +23,7 @@ const routes: Routes = [
   {
     path: 'contexts',
     loadChildren: () =>
-      import('./contextos/context.module').then((m) => m.ContextModule),
+      import('./context/context.module').then((m) => m.ContextModule),
     canLoad: [],
     canActivate: [],
   },
@@ -34,14 +33,6 @@ const routes: Routes = [
       import('./layout/layout.module').then((m) => m.LayoutModule),
     data: {
       breadcrumb: 'Home',
-    },
-  },
-  {
-    path: 'nav',
-    loadChildren: () =>
-      import('./nav-bar/nav-bar.module').then((m) => m.NavBarModule),
-    data: {
-      breadcrumb: 'Nav',
     },
   },
   {

@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ContextService } from '../context.service';
 
 @Component({
-  selector: 'app-cadastra-contexto',
-  templateUrl: './cadastra-contexto.component.html',
-  styleUrls: ['./cadastra-contexto.component.css']
+  selector: 'app-register-context',
+  templateUrl: './register-context.component.html',
+  styleUrls: ['./register-context.component.css']
 })
-export class CadastraContextoComponent implements OnInit {
+export class RegisterContextComponent implements OnInit {
 
   public contextoForm!: FormGroup;
+  public saveEvent = new EventEmitter();
+  public cancelEvent = new EventEmitter();
 
   constructor(
     private formBuilder: FormBuilder,
-    private router:Router,
     private contextService: ContextService,
-
     ) {  }
 
   ngOnInit(): void {
@@ -34,7 +34,8 @@ export class CadastraContextoComponent implements OnInit {
 
   }
 
-  salvar(): void {
+  /** TO DO: Este método não está funcionando devido a problemas na API */
+  save(): void {
     if(this.contextoForm?.valid){
       this.contextService.save(this.contextoForm.value).subscribe(
         result => {
@@ -47,9 +48,8 @@ export class CadastraContextoComponent implements OnInit {
   }
 
 
-  cancelar(): void {
-    this.router.navigate([''])
+  cancel(): void {
+    this.cancelEvent.emit();
   }
-
 
 }

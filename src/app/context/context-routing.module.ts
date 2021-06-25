@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CadastraContextoComponent } from './cadastra-contexto/cadastra-contexto.component';
+import { RegisterContextComponent } from './register-context/register-context.component';
 import { ListContextComponent } from './list-context/list-context.component';
 
 
@@ -20,7 +20,7 @@ const routes: Routes = [
   },
   {
     path: 'save',
-    component: CadastraContextoComponent,
+    component: RegisterContextComponent,
     canLoad: [],
     canActivate: [],
   },

@@ -1,39 +1,44 @@
-<mat-sidenav-container>
-  <mat-sidenav-content>
-    <mat-toolbar color="#fff" class="mat-elevation-z4">
-      <div fxHide.gt-xs>
+<div fxLayout="row">
 
-          <button mat-icon-button >
-              <mat-icon>menu</mat-icon>
-          </button>
-      </div>
-      <div>
-          <a class="title" routerLink="/home">EducaManager</a>
-      </div>
-      <div fxFlex fxLayout fxLayoutAlign="end start" fxHide.xs>
+  <mat-toolbar class="nav-bar mat-elevation-z4 ">
+    <a (click)="home()" class="logo">
+      EducaManager
+    </a>
+
+    <div>
+      <mat-form-field appearance="outline" class="search">
+        <input matInput type="text" placeholder="Buscar..." [formControl]="search" [matAutocomplete]="auto">
+        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)='selectOption($event)'
+          [displayWith]="itemDisplayFn">
+          <mat-option *ngFor="let option of resultContexts" [value]="option">
+            {{option?.name}} ({{option?.creator?.name}})
+          </mat-option>
+        </mat-autocomplete>
+        <mat-icon class="button-search" matSuffix (click)="stringSearch()">search</mat-icon>
+      </mat-form-field>
+    </div>
 
 
-                <form class="example-form">
-                  <mat-form-field class="example-full-width">
-                    <mat-label>Buscar</mat-label>
-                    <input type="search" matInput placeholder="universo">
-                    <mat-icon style="color: #14A6A6;
-                    "matSuffix>search</mat-icon>
-                  </mat-form-field>
-                </form>
+    <button (click)="criar()" class="button"> Criar </button>
 
-                <button mat-raised-button style="background: #5ABA38;" color="primary" (click)="criar()">Criar</button>
 
-                <a mat-button> <mat-icon>account_circle</mat-icon> </a>
+    <button [matMenuTriggerFor]="menu" class="snackbutton">
+      <img class="a" src="assets/perfil.svg" alt="logo">
+    </button>
+    <mat-menu #menu="matMenu">
+      <button (click)="verPerfil()" mat-menu-item>
+        <mat-icon>visibility </mat-icon> Ver perfil
+      </button>
+      <button (click)="openDialogEditUser()" mat-menu-item>
+        <mat-icon> edit</mat-icon> Editar perfil
+      </button>
+      <button (click)="sair()" mat-menu-item>
+        <mat-icon>logout</mat-icon> Sair
+      </button>
+    </mat-menu>
 
-      </div>
 
-      <mat-sidenav #sidenav role="navigation">
-        <!-- <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list> -->
-      </mat-sidenav>
+  </mat-toolbar>
 
-    </mat-toolbar>
-  </mat-sidenav-content>
 
-</mat-sidenav-container>
-<router-outlet></router-outlet>
+</div>

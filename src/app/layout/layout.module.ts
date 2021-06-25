@@ -18,7 +18,6 @@ import {MatInputModule} from '@angular/material/input';
 @NgModule({
   declarations: [
     HomeComponent,
-    HeaderComponent,
     SidenavListComponent,
   ],
   imports: [

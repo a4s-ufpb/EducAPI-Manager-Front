@@ -39,8 +39,7 @@ export class AuthService {
   }
 
   logout() {
-      //TODO - Colocar rota de loggout
-    this.router.navigate([`login`]);
+    this.router.navigate(['home']);
     this.storage.setLocalUser(null);
     this.storage.setToken(null);
     // Triggers the reboot in main.ts

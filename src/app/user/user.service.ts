@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { StorageService } from '../auth/session/storage.service';
 import { UserModel } from '../auth/session/user.model';
-import { ContextModel } from '../contextos/context.model';
+import { ContextModel } from '../context/context.model';
 
 @Injectable({
   providedIn: 'root'

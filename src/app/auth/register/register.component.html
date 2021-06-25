@@ -13,6 +13,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Email</mat-label>
                         <input matInput type="email" formControlName="email" required>
+                        <mat-error *ngIf="email?.invalid">E-mail inválido</mat-error>
                     </mat-form-field>
                     <mat-form-field appearance="outline">
                         <mat-label>Nome de usuário</mat-label>
@@ -21,6 +22,7 @@
                     <mat-form-field appearance="outline">
                         <mat-label>Senha</mat-label>
                         <input matInput [type]="isPassword ? 'password' : 'text'" formControlName="password" required>
+                        <mat-error *ngIf="password?.invalid">Sua possui menos de 8 caractéres</mat-error>
                         <button mat-icon-button matSuffix (click)="isPassword = !isPassword"
                             [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isPassword">
                             <mat-icon>{{isPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
