@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
-import { STORAGE_KEYS } from "./storage_keys.config";
-import { UserModel } from "./user.model";
+import { Injectable } from '@angular/core';
+import { STORAGE_KEYS } from './storage_keys.config';
+import { UserModel } from './user.model';
 
 @Injectable({
   providedIn: 'root'

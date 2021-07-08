@@ -39,12 +39,12 @@ export class ListContextComponent implements OnInit {
   email: string | undefined;
 
 
-  constructor(iconRegistry: MatIconRegistry, 
-    sanitizer: DomSanitizer, 
-    private contextService: ContextService, 
-    private storage: StorageService,
-    public dialogDeleteUser: MatDialog,
-    private _bottomSheet: MatBottomSheet
+  constructor(iconRegistry: MatIconRegistry,
+              sanitizer: DomSanitizer,
+              private contextService: ContextService,
+              private storage: StorageService,
+              public dialogDeleteUser: MatDialog,
+              private _bottomSheet: MatBottomSheet
     ) {
     iconRegistry.addSvgIcon(
       'view-button',
@@ -64,7 +64,7 @@ export class ListContextComponent implements OnInit {
   }
 
   openContextView() {
-    console.log("Redirecionar para a tela de ver desafios")
+    console.log('Redirecionar para a tela de ver desafios');
   }
 
   getServerData(event?: PageEvent) {
@@ -76,7 +76,7 @@ export class ListContextComponent implements OnInit {
         this.length = response.totalElements;
       },
       error => {
-        console.log("Pagination Error")
+        console.log('Pagination Error');
       }
     );
     return event;
@@ -88,7 +88,7 @@ export class ListContextComponent implements OnInit {
 
   openDialogDelete(context: ContextModel){
     const dialogDeleteUser = this.dialogDeleteUser.open(DeleteContextComponent);
-    dialogDeleteUser.componentInstance.context=context;
+    dialogDeleteUser.componentInstance.context = context;
     dialogDeleteUser.componentInstance.saveEvent.subscribe(
       result => {
         dialogDeleteUser.close();
@@ -103,14 +103,14 @@ export class ListContextComponent implements OnInit {
   openBottomSheet(): void {
     const btn = this._bottomSheet.open(FilterBottomSheetComponent);
     btn.instance.saveEvent.subscribe(
-      result =>{
+      result => {
         this.email = result;
         this.getServerData(undefined);
         btn.dismiss();
       }
     );
     btn.instance.cancelEvent.subscribe(
-      result =>{
+      result => {
         btn.dismiss();
       }
     );

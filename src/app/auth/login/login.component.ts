@@ -13,7 +13,7 @@ import { StorageService } from '../session/storage.service';
 export class LoginComponent implements OnInit {
 
   public loginFormGroup!: FormGroup;
-  public isPassword : boolean = true;
+  public isPassword = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,16 +35,16 @@ export class LoginComponent implements OnInit {
   }
 
   submit(){
-    if(this.loginFormGroup.valid){
+    if (this.loginFormGroup.valid){
       this.authService.authenticate(this.loginFormGroup.value.email, this.loginFormGroup.value.password)
         .subscribe(result => {
           this.authService.sucessfullLogin(result);
           this.getUser();
         },
         error => {
-          this.toastr.error('Seu e-mail ou sua senha estão incorretos, verifique e tente novamente.','Olá!');
-        }        
-        )
+          this.toastr.error('Seu e-mail ou sua senha estão incorretos, verifique e tente novamente.', 'Olá!');
+        }
+        );
     }
   }
 

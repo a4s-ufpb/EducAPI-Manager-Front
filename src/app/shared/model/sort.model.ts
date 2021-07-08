@@ -3,5 +3,5 @@ export class Sort {
     unsorted: boolean | undefined;
     empty: boolean | undefined;
   }
-  export const ASC = 'ASC';
-  export const DEC = 'DESC';
+export const ASC = 'ASC';
+export const DEC = 'DESC';

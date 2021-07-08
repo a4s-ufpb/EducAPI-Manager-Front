@@ -8,16 +8,16 @@ import { Router } from '@angular/router';
 })
 export class EdicaoDesafioComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
 
   salvar(): void {
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
   cancelar(): void {
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
 
 }

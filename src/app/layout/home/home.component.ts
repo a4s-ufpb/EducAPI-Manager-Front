@@ -16,20 +16,20 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
   public onToggleSidenav = () => {
     this.sidenavToggle.emit();
-  };
+  }
 
   scroll(el: HTMLElement) {
     el.scrollIntoView();
   }
 
   redirectToLogin(){
-    this.router.navigate(['../auth/login'])
+    this.router.navigate(['../auth/login']);
   }
 
   redirectToregister(){
-    this.router.navigate(['../auth/register'])
+    this.router.navigate(['../auth/register']);
   }
   redirectToPlayStore(){
-    window.open("https://play.google.com/store/apps/developer?id=Projeto+Apps4Society+da+UFPB")
+    window.open('https://play.google.com/store/apps/developer?id=Projeto+Apps4Society+da+UFPB');
   }
 }

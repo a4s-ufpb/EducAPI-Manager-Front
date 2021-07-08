@@ -1,6 +1,6 @@
-import { Component, EventEmitter } from "@angular/core";
-import { FormControl } from "@angular/forms";
-import { MatBottomSheetRef } from "@angular/material/bottom-sheet";
+import { Component, EventEmitter } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { MatBottomSheetRef } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'filter-bottom-sheet',
@@ -14,7 +14,7 @@ export class FilterBottomSheetComponent {
   cancelEvent = new EventEmitter();
 
 
-  constructor(private _bottomSheetRef: MatBottomSheetRef<FilterBottomSheetComponent>,) {}
+  constructor(private _bottomSheetRef: MatBottomSheetRef<FilterBottomSheetComponent>, ) {}
 
   openLink(event: MouseEvent): void {
     this._bottomSheetRef.dismiss();

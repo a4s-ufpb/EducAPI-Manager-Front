@@ -13,12 +13,12 @@ import { StorageService } from '../session/storage.service';
 export class RegisterComponent implements OnInit {
 
   public registerFormGroup!: FormGroup;
-  public isPassword : boolean = true;
+  public isPassword = true;
 
   constructor(private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private storageService: StorageService,
-    private router: Router,) { }
+              private authService: AuthService,
+              private storageService: StorageService,
+              private router: Router, ) { }
 
   ngOnInit(): void {
     this.buildForm();
@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
       .subscribe(result => {
         this.authService.sucessfullLogin(result);
         this.getUser();
-      })
+      });
   }
 
   getUser() {
@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       name: [''],
       password: [undefined, [Validators.required, Validators.minLength(8)]]
-    })
+    });
   }
 
   redirectHome(){

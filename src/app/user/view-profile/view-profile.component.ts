@@ -45,7 +45,7 @@ export class ViewProfileComponent implements OnInit {
   }
 
   openContextView(){
-    console.log("Open context view")
+    console.log('Open context view');
   }
 
   getUserContexts(){
@@ -54,7 +54,7 @@ export class ViewProfileComponent implements OnInit {
         this.userContexts = result;
         console.log(result);
       }
-    )
+    );
   }
 
   getLoggedUserName(){
@@ -71,7 +71,7 @@ export class ViewProfileComponent implements OnInit {
 
   openDialogDelete(context: ContextModel){
     const dialogDeleteUser = this.dialogDeleteUser.open(DeleteContextComponent);
-    dialogDeleteUser.componentInstance.context=context;
+    dialogDeleteUser.componentInstance.context = context;
     dialogDeleteUser.componentInstance.saveEvent.subscribe(
       result => {
         dialogDeleteUser.close();

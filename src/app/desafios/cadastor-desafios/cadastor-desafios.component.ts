@@ -8,18 +8,18 @@ import { Router } from '@angular/router';
 })
 export class CadastorDesafiosComponent implements OnInit {
 
-  constructor( private router:Router) { }
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
 
   save(): void {
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
   end(): void {
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
   back(): void {
-    this.router.navigate([''])
+    this.router.navigate(['']);
   }
 }

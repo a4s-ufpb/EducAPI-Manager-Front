@@ -11,17 +11,17 @@ export class LoggedInGuard implements CanLoad, CanActivate {
 
   }
 
-  canLoad(route: Route) : boolean{
+  canLoad(route: Route): boolean{
     return this.checkAuthentication(route.path);
   }
 
-  canActivate(activatedRoute: ActivatedRouteSnapshot, routerState: RouterStateSnapshot) : boolean {
+  canActivate(activatedRoute: ActivatedRouteSnapshot, routerState: RouterStateSnapshot): boolean {
     return this.checkAuthentication(activatedRoute.routeConfig?.path);
   }
 
-  checkAuthentication(path: string | undefined | null) : boolean {
+  checkAuthentication(path: string | undefined | null): boolean {
     const loggedIn = this.authService.isLoggedIn();
-    if(!loggedIn){
+    if (!loggedIn){
       this.authService.handleLogin(`/${path}`);
     }
     return loggedIn;

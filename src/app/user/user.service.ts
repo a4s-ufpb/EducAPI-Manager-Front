@@ -28,8 +28,8 @@ export class UserService {
     return this.http.get<ContextModel []>(`${this.baseURL}/v1/api/auth/contexts`);
   }
 
-  updateUser(newName: string, newPassword: string):Observable<UserModel>{
-    console.log("update user")
+  updateUser(newName: string, newPassword: string): Observable<UserModel>{
+    console.log('update user');
     return this.http.put<UserModel>(`${this.baseURL}/v1/api/auth/users`, { email: this.storage.getLocalUser()?.email , name: newName, password: newPassword});
   }
 

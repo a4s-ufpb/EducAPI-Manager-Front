@@ -18,8 +18,8 @@ export class DeleteContextComponent implements OnInit {
   public cancelEvent = new EventEmitter();
 
   constructor(public dialog: MatDialog,
-    private contextService: ContextService,
-    private toastr: ToastrService,
+              private contextService: ContextService,
+              private toastr: ToastrService,
     ) { }
 
   ngOnInit(): void {
@@ -32,12 +32,12 @@ export class DeleteContextComponent implements OnInit {
   deleteContext(){
     this.contextService.deleteContext(this.context.id).subscribe(
       result => {
-        this.saveEvent.emit()
-        this.toastr.success('O contexto foi deletado com sucesso','Contexto deletado!');
-      }, 
+        this.saveEvent.emit();
+        this.toastr.success('O contexto foi deletado com sucesso', 'Contexto deletado!');
+      },
       error => {
-        this.toastr.error('Tente novamente','Erro ao deletar o contexto');
-      },        
+        this.toastr.error('Tente novamente', 'Erro ao deletar o contexto');
+      },
     );
   }
 

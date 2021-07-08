@@ -15,7 +15,7 @@ export class AuthService {
   private API = environment.apiUrl;
 
   private baseURL = `${this.API}`;
-   
+
 
   constructor(
     private http: HttpClient,
@@ -31,7 +31,7 @@ export class AuthService {
   authenticate(email: string, password: string): Observable<TokenModel> {
     return this.http.post<TokenModel>(
       `${this.baseURL}/v1/api/auth/login`,
-      { email: email, password: password });
+      { email, password });
   }
 
   sucessfullLogin(token: TokenModel) {
@@ -48,12 +48,12 @@ export class AuthService {
 
   handleLogin(path: string) {
       // TODO - Adicionar rota da tela de login
-    return this.router.navigate([`login`, btoa(path)])
+    return this.router.navigate([`login`, btoa(path)]);
   }
 
   register(email: string, name: string, password: string): Observable<UserModel> {
     console.log(name);
-    return this.http.post<UserModel>(`${this.baseURL}/v1/api/users`, {email: email, name: name, password: password});
+    return this.http.post<UserModel>(`${this.baseURL}/v1/api/users`, {email, name, password});
   }
 
   getUser(): Observable<UserModel>{

@@ -20,10 +20,10 @@ export class EditProfileComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   constructor(private router: Router,
-    private formBuilder: FormBuilder,
-    private userService: UserService,
-    private storageService: StorageService,
-    private toastr: ToastrService,
+              private formBuilder: FormBuilder,
+              private userService: UserService,
+              private storageService: StorageService,
+              private toastr: ToastrService,
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +35,7 @@ export class EditProfileComponent implements OnInit {
       name: [this.getUserName(), []],
       password: [undefined, [Validators.required, Validators.minLength(8)]],
       confirmPassword: [undefined, [Validators.required, Validators.minLength(8)]],
-    },{
+    }, {
       validator: this.checkPasswords,
     });
   }
@@ -43,7 +43,7 @@ export class EditProfileComponent implements OnInit {
   checkPasswords(group: FormGroup) {
     const password = group!.get('password')?.value;
     const confirmPassword = group!.get('confirmPassword')?.value;
-    return  password === confirmPassword ?  true : { notSame: true };;
+    return  password === confirmPassword ?  true : { notSame: true };
   }
 
 
@@ -52,15 +52,15 @@ export class EditProfileComponent implements OnInit {
   }
 
   save(): void {
-    this.userService.updateUser(this.editProfileFormGroup?.get('name')?.value, 
+    this.userService.updateUser(this.editProfileFormGroup?.get('name')?.value,
       this.editProfileFormGroup?.get('password')?.value).subscribe(
         result => {
-          this.saveEvent.emit()
-          this.toastr.success('As atualizações do seu perfil foram salvas com sucesso','Atualizações salvas com sucesso!');
+          this.saveEvent.emit();
+          this.toastr.success('As atualizações do seu perfil foram salvas com sucesso', 'Atualizações salvas com sucesso!');
         },
         error => {
-          this.toastr.error('Tente novamente','Erro ao salvar alterações no perfil');
-        },          
+          this.toastr.error('Tente novamente', 'Erro ao salvar alterações no perfil');
+        },
     );
   }
 

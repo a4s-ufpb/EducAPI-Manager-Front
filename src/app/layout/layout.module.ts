@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import {MatListModule} from '@angular/material/list';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule} from '@angular/material/card';
-import { HeaderComponent } from './home/header/header.component'
+import { HeaderComponent } from './home/header/header.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { SidenavListComponent } from './home/sidenav-list/sidenav-list.component';
 import { MatMenuModule } from '@angular/material/menu';

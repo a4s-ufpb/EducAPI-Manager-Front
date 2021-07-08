@@ -20,17 +20,17 @@ export class NavBarComponent implements OnInit {
   resultContexts: ContextModel[] | undefined = [];
 
   constructor(private router: Router,
-    private authService: AuthService,
-    public dialogEditUser: MatDialog,
-    private contextService: ContextService,
-    public dialogRegisterContext: MatDialog,
+              private authService: AuthService,
+              public dialogEditUser: MatDialog,
+              private contextService: ContextService,
+              public dialogRegisterContext: MatDialog,
     ) { }
 
   ngOnInit(): void {
   }
 
   verPerfil(): void {
-    this.router.navigate(['/user/profile'])
+    this.router.navigate(['/user/profile']);
   }
 
   openDialogEditUser(): void {
@@ -46,7 +46,7 @@ export class NavBarComponent implements OnInit {
   sair(): void {
     this.authService.logout();
   }
-  
+
   criar(): void {
     const dialogRegisterContext = this.dialogRegisterContext.open(RegisterContextComponent);
     dialogRegisterContext.componentInstance.saveEvent.subscribe(
@@ -59,7 +59,7 @@ export class NavBarComponent implements OnInit {
 
 
   home(): void {
-    this.router.navigate(['/contexts/list'])
+    this.router.navigate(['/contexts/list']);
   }
 
   stringSearch() {

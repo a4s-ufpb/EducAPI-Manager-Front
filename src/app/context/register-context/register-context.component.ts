@@ -36,14 +36,14 @@ export class RegisterContextComponent implements OnInit {
 
   /** TO DO: Este método não está funcionando devido a problemas na API */
   save(): void {
-    if(this.contextoForm?.valid){
+    if (this.contextoForm?.valid){
       this.contextService.save(this.contextoForm.value).subscribe(
         result => {
-          console.log("Salvou");
+          console.log('Salvou');
         }, error => {
-          console.log("Deu errado")
+          console.log('Deu errado');
         }
-      )
+      );
     }
   }
 
