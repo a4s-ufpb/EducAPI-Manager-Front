@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ContextService } from '../context.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class RegisterContextComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private contextService: ContextService,
+    private toastr: ToastrService,
     ) {  }
 
   ngOnInit(): void {
@@ -39,11 +41,13 @@ export class RegisterContextComponent implements OnInit {
     if(this.contextoForm?.valid){
       this.contextService.save(this.contextoForm.value).subscribe(
         result => {
-          console.log("Salvou");
-        }, error => {
-          console.log("Deu errado")
-        }
-      )
+          this.saveEvent.emit()
+          this.toastr.success('O contexto foi criado com sucesso','Contexto criado!');
+        },
+        error => {
+          this.toastr.error('Tente novamente','Erro ao criar o contexto');
+        },
+      );
     }
   }
 
