@@ -1,8 +1,14 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "viewportWidth": 1400,
   "viewportHeight": 660
 }
+=======
+    "viewportWidth": 1368,
+    "viewportHeight": 980
+}
+>>>>>>> fb6ed8045d9bdd0096b577300d31b0df9261062e
 =======
     "viewportWidth": 1368,
     "viewportHeight": 980
