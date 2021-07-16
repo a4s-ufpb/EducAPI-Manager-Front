@@ -22,7 +22,7 @@
     <button (click)="criar()" class="button"> Criar </button>
 
 
-    <button [matMenuTriggerFor]="menu" class="snackbutton">
+    <button [matMenuTriggerFor]="menu" class="snackbutton" data-cy="menu-profile">
       <img class="a" src="assets/perfil.svg" alt="logo">
     </button>
     <mat-menu #menu="matMenu">
@@ -32,7 +32,7 @@
       <button (click)="openDialogEditUser()" mat-menu-item>
         <mat-icon> edit</mat-icon> Editar perfil
       </button>
-      <button (click)="sair()" mat-menu-item>
+      <button (click)="sair()" mat-menu-item data-cy="logout">
         <mat-icon>logout</mat-icon> Sair
       </button>
     </mat-menu>
