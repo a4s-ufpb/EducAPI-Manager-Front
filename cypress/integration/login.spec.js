@@ -4,6 +4,7 @@ describe('caso de test do login', () => {
 
     cy.visit('http://localhost:4200/')
     cy.get('[data-cy=login-button]').click()
+
   })
 
   it('Logado com sucesso', () => {
