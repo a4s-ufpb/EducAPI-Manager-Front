@@ -1,5 +1,5 @@
 
-describe('caso de test do login', () => {
+describe('caso de test do logout', () => {
   beforeEach(() => {
     cy.visit('http://localhost:4200/')
     cy.get('[data-cy=login-button]').click()
